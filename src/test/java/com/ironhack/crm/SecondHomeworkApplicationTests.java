@@ -1,4 +1,4 @@
-package com.ironhack.demo;
+package com.ironhack.crm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
