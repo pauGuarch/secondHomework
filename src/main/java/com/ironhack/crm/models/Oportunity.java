@@ -10,10 +10,10 @@ public class Oportunity {
     private int quantity;
     private OportunityStatus status;
     private String product;
-    private int quantity;
     private Company company;
 
     public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status, String product, int quantity1, Company company) {
+    }
 
 
     public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status) {
@@ -22,7 +22,6 @@ public class Oportunity {
         this.quantity = quantity;
         this.status = status;
         this.product = product;
-        this.quantity = quantity1;
         this.company = company;
     }
 
@@ -81,6 +80,7 @@ public class Oportunity {
         }else{
             return false;
         }
+    }
     public boolean close(){
         return true;
     }
