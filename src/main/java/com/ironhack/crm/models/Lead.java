@@ -18,7 +18,6 @@ public class Lead {
     }
 
 
-
     public UUID getId() {
         return id;
     }
