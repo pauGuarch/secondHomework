@@ -14,6 +14,9 @@ public class Oportunity {
     private Company company;
 
     public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status, String product, int quantity1, Company company) {
+
+
+    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status) {
         this.id = id;
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
@@ -78,6 +81,8 @@ public class Oportunity {
         }else{
             return false;
         }
+    public boolean close(){
+        return true;
     }
     public void lookUp(){
 
