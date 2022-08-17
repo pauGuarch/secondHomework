@@ -11,14 +11,24 @@ public class Oportunity {
     private OportunityStatus status;
     private String product;
     private int quantity;
+    private Company company;
 
-    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status, String product, int quantity1) {
+    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status, String product, int quantity1, Company company) {
         this.id = id;
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
         this.status = status;
         this.product = product;
         this.quantity = quantity1;
+        this.company = company;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public Contact getDecisionMaker() {
