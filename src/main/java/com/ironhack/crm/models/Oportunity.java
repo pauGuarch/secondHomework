@@ -9,12 +9,16 @@ public class Oportunity {
     private Contact decisionMaker;
     private int quantity;
     private OportunityStatus status;
+    private String product;
+    private int quantity;
 
-    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status) {
+    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status, String product, int quantity1) {
         this.id = id;
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
         this.status = status;
+        this.product = product;
+        this.quantity = quantity1;
     }
 
     public Contact getDecisionMaker() {
@@ -41,8 +45,29 @@ public class Oportunity {
         this.status = status;
     }
 
-    public boolean close(){
-        return true;
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public void setProduct(String product) {
+        this.product = product;
+    }
+
+    public boolean close(OportunityStatus status){
+        if (status == OportunityStatus.CLOSED_LOST || status == OportunityStatus.CLOSED_WON){
+            setStatus(status);
+            return true;
+        }else{
+            return false;
+        }
     }
     public void lookUp(){
 
