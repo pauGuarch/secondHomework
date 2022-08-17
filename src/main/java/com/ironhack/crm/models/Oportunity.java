@@ -1,6 +1,6 @@
 package com.ironhack.crm.models;
 
-import com.ironhack.crm.enums.OportunityStatus;
+import com.ironhack.crm.models.enums.OportunityStatus;
 
 import java.util.UUID;
 
