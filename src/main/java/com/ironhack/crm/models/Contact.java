@@ -5,12 +5,14 @@ import java.util.UUID;
 public class Contact {
     private UUID id;
     private String name;
+    private String email;
     private Integer phoneNumber;
     private String companyName;
 
-    public Contact(UUID id, String name, Integer phoneNumber, String companyName) {
+    public Contact(UUID id, String name, String email, Integer phoneNumber, String companyName) {
         this.id = id;
         this.name = name;
+        this.email = email;
         this.phoneNumber = phoneNumber;
         this.companyName = companyName;
     }
@@ -29,6 +31,14 @@ public class Contact {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Integer getPhoneNumber() {
@@ -56,5 +66,4 @@ public class Contact {
                 ", companyName=" +
                 '}';
     }
-
 }
