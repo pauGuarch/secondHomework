@@ -1,4 +1,4 @@
-package Homework2;
+package com.ironhack.crm.models;
 
 import java.util.ArrayList;
 import java.util.UUID;
