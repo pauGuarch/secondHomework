@@ -1,4 +1,4 @@
-package com.ironhack.crm.models;
+package com.ironhack.crm.domain.models;
 
 import java.util.List;
 import java.util.UUID;
