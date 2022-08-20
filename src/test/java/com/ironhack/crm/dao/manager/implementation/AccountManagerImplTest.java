@@ -34,18 +34,23 @@ class AccountManagerImplTest {
         opportunities = new ArrayList<>();
         opportunities.add(opportunity);
         contacts.add(contact);
-        account1 = new Account("",11,"dfs","asdsa",contacts,opportunities);
-        account2 = new Account("",11,"dfs","asdsa",contacts,opportunities);
+        account1 = new Account("IronHack",11,"dfs","SPAIN",contacts,opportunities);
+        account2 = new Account("RamonHack",11,"dfs","LATINSPAIN",contacts,opportunities);
     }
 
     @Test
-    void createAccount() {
-        //TODO
-        //assertEquals size
+    void testCreateAccount() {
+        accountManager.createAccount(account1);
+        int index = accountManager.checkAccounts().indexOf(account1);
+        assertEquals("IronHack", accountManager.checkAccounts().get(index).getIndustry());
+    }
+
+    @Test
+    void testCheckAccounts() {
+        int accountSize = accountManager.checkAccounts().size();
+        accountManager.createAccount(account1);
         accountManager.createAccount(account2);
-    }
-
-    @Test
-    void checkAccounts() {
+        List<Account> accountList = accountManager.checkAccounts();
+        assertEquals(accountList.size(), accountSize + 2);
     }
 }
