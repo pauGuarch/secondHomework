@@ -1,6 +1,7 @@
 package com.ironhack.crm.domain.models;
 
 import com.ironhack.crm.domain.enums.OpportunityStatus;
+import com.ironhack.crm.exceptions.IntegerException;
 
 import java.util.UUID;
 
@@ -9,7 +10,7 @@ public class Opportunity {
     private Contact decisionMaker;
     private Integer quantity;
     private OpportunityStatus status;
-    private String product;
+    private Product product;
 
 
     public Opportunity(Contact decisionMaker, Integer quantity, OpportunityStatus status) {
@@ -17,7 +18,6 @@ public class Opportunity {
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
         this.status = status;
-        this.product = product;
     }
 
     public Contact getDecisionMaker() {
@@ -32,8 +32,12 @@ public class Opportunity {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
+    public void setQuantity(Integer quantity) throws IntegerException {
+        if(quantity > 0){
+            this.quantity = quantity;
+        }else {
+            throw new IntegerException();
+        }
     }
 
     public OpportunityStatus getStatus() {
@@ -52,11 +56,11 @@ public class Opportunity {
         this.id = UUID.randomUUID();
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

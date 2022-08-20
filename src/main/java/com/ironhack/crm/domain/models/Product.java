@@ -1,6 +1,7 @@
 package com.ironhack.crm.domain.models;
 
 import com.ironhack.crm.domain.enums.ProductType;
+import com.ironhack.crm.exceptions.EmptyStringException;
 
 import java.util.UUID;
 
@@ -28,8 +29,12 @@ public class Product {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductName(String productName) throws EmptyStringException {
+        if(!productName.isEmpty()){
+            this.productName = productName;
+        }else {
+            throw new EmptyStringException();
+        }
     }
 
     public ProductType getProductType() {
