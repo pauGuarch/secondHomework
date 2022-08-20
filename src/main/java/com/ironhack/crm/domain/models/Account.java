@@ -1,34 +1,36 @@
-package com.ironhack.crm.models;
+package com.ironhack.crm.domain.models;
+
 
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class Account {
 
-    UUID uuid = UUID.randomUUID();
+    private UUID id;
     private String industry;
-    private int employeeCount;
+    private Integer employeeCount;
     private String city;
     private String country;
     private ArrayList<String> contactList;
-    private ArrayList<String> oportunityList;
+    private ArrayList<String> opportunityList;
 
 
-    public Account(String industry, int employeeCount, String city, String country, ArrayList<String> contactList, ArrayList<String> oportunityList) {
+    public Account(String industry, Integer employeeCount, String city, String country, ArrayList<String> contactList, ArrayList<String> opportunityList) {
+        setId();
         this.industry = industry;
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;
         this.contactList = contactList;
-        this.oportunityList = oportunityList;
+        this.opportunityList = opportunityList;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId() {
+        this.id = UUID.randomUUID();
     }
 
     public String getIndustry() {
@@ -39,11 +41,11 @@ public class Account {
         this.industry = industry;
     }
 
-    public int getEmployeeCount() {
+    public Integer getEmployeeCount() {
         return employeeCount;
     }
 
-    public void setEmployeeCount(int employeeCount) {
+    public void setEmployeeCount(Integer employeeCount) {
         this.employeeCount = employeeCount;
     }
 
@@ -71,11 +73,11 @@ public class Account {
         this.contactList = contactList;
     }
 
-    public ArrayList<String> getOportunityList() {
-        return oportunityList;
+    public ArrayList<String> getOpportunityList() {
+        return opportunityList;
     }
 
-    public void setOportunityList(ArrayList<String> oportunityList) {
-        this.oportunityList = oportunityList;
+    public void setOpportunityList(ArrayList<String> opportunityList) {
+        this.opportunityList = opportunityList;
     }
 }

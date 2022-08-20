@@ -1,25 +1,27 @@
-package Homework2;
+package com.ironhack.crm.domain.models;
+
+import com.ironhack.crm.domain.enums.ProductType;
 
 import java.util.UUID;
 
 public class Product {
 
-    UUID uuid = UUID.randomUUID();
+    UUID id;
     private String productName;
     private ProductType productType;
 
-    public Product(UUID uuid, String productName, ProductType productType) {
-        this.uuid = uuid;
+    public Product(String productName, ProductType productType) {
+        setId();
         this.productName = productName;
         this.productType = productType;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId() {
+        this.id = UUID.randomUUID();
     }
 
     public String getProductName() {

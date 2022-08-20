@@ -1,10 +1,10 @@
 package com.ironhack.crm.utils;
 
-import com.ironhack.crm.models.Oportunity;
+import com.ironhack.crm.domain.models.Opportunity;
 
 public class Utils {
-    public static void lookUpOportunity(Oportunity oportunity){
-        System.out.println(oportunity.toString());
+    public static void lookUpOpportunity(Opportunity opportunity){
+        System.out.println(opportunity.toString());
     }
 
 }

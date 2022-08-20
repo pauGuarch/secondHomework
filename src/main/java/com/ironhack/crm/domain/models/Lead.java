@@ -1,4 +1,4 @@
-package com.ironhack.crm.models;
+package com.ironhack.crm.domain.models;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,6 +11,7 @@ public class Lead {
     private String phoneNumber;
 
     public Lead(String name, String companyName, String email, String phoneNumber) {
+        setId();
         this.name = name;
         this.companyName = companyName;
         this.email = email;
@@ -21,6 +22,8 @@ public class Lead {
     public UUID getId() {
         return id;
     }
+
+    public void setId(){this.id = UUID.randomUUID();}
 
     public String getName() {
         return name;
