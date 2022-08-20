@@ -1,16 +1,11 @@
 package com.ironhack.crm.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.ironhack.crm.domain.models.Account;
-import com.ironhack.crm.domain.models.Contact;
-import com.ironhack.crm.domain.models.Opportunity;
-import com.ironhack.crm.domain.models.Product;
+import com.ironhack.crm.domain.models.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -82,57 +77,58 @@ public class Utils {
         return validate;
     }
 
-    private static List<Opportunity> readOpportunities() {
-        List<Opportunity> opportunities = null;
+
+    public void writeAccountsJSON(List<Account> accountList) throws IOException {
         try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            opportunities = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
-            reader.close();
+            Writer writer = new FileWriter("./src/main/resources/data/account.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(accountList, writer);
+            writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return opportunities;
     }
 
-    private static List<Contact> readContacts() {
-        List<Contact> contacts = null;
+    public void writeContactsJSON(List<Contact> contactList) throws IOException {
         try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            contacts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
-            reader.close();
+            Writer writer = new FileWriter("./src/main/resources/data/contact.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(contactList, writer);
+            writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return contacts;
     }
-    private static List<Account> readAccounts() {
-        List<Account> accounts = null;
+
+    public void writeLeadsJSON(List<Lead> leadList) throws IOException {
         try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            accounts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
-            reader.close();
+            Writer writer = new FileWriter("./src/main/resources/data/lead.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(leadList, writer);
+            writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return accounts;
     }
-    private static List<Product> readProduct() {
-        List<Product> products = null;
+
+    public void writeOpportunityJSON(List<Opportunity> opportunityList) throws IOException {
         try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            products = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
-            reader.close();
+            Writer writer = new FileWriter("./src/main/resources/data/opportunity.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(opportunityList, writer);
+            writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        return products;
     }
-
-
-
-
+    public void writeProductJSON(List<Product> productList) throws IOException {
+        try {
+            Writer writer = new FileWriter("./src/main/resources/data/product.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(productList, writer);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
