@@ -1,15 +1,11 @@
 package com.ironhack.crm.dao.manager.implementation;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.ironhack.crm.dao.manager.ContactManager;
 import com.ironhack.crm.domain.models.Contact;
-
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.IOException;
 import java.util.List;
 
 import static com.ironhack.crm.utils.Utils.readContacts;
+import static com.ironhack.crm.utils.Utils.writeContactsJSON;
 
 public class ContactManagerImpl implements ContactManager {
     private static ContactManagerImpl contactManager;
@@ -27,7 +23,13 @@ public class ContactManagerImpl implements ContactManager {
     }
     @Override
     public void createNewContact(Contact contact) {
-
+        contacts.add(contact);
+        try {
+            writeContactsJSON(contacts);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        checkContacts();
     }
 
     @Override

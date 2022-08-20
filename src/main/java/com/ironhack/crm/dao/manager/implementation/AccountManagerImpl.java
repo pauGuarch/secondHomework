@@ -1,15 +1,11 @@
 package com.ironhack.crm.dao.manager.implementation;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.ironhack.crm.dao.manager.AccountManager;
 import com.ironhack.crm.domain.models.Account;
-
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.IOException;
 import java.util.List;
 
 import static com.ironhack.crm.utils.Utils.readAccounts;
+import static com.ironhack.crm.utils.Utils.writeAccountsJSON;
 
 public class AccountManagerImpl implements AccountManager {
     private static AccountManagerImpl accountManager;
@@ -29,7 +25,13 @@ public class AccountManagerImpl implements AccountManager {
 
     @Override
     public void createAccount(Account account) {
-
+        accounts.add(account);
+        try {
+            writeAccountsJSON(this.accounts);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        checkAccounts();
     }
 
     @Override

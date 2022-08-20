@@ -1,10 +1,12 @@
 package com.ironhack.crm.dao.manager.implementation;
 import com.ironhack.crm.dao.manager.OpportunityManager;
 import com.ironhack.crm.domain.models.Opportunity;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
 import static com.ironhack.crm.utils.Utils.readOpportunities;
+import static com.ironhack.crm.utils.Utils.writeOpportunityJSON;
 
 public class OpportunityManagerImpl implements OpportunityManager {
     private static OpportunityManagerImpl opportunityManager;
@@ -22,8 +24,14 @@ public class OpportunityManagerImpl implements OpportunityManager {
     }
 
     @Override
-    public void createNewOpportunity(Opportunity lead) {
-
+    public void createNewOpportunity(Opportunity opportunity) {
+        opportunities.add(opportunity);
+        try {
+            writeOpportunityJSON(opportunities);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        checkOpportunities();
     }
 
     @Override

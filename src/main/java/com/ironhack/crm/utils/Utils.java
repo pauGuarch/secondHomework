@@ -136,7 +136,7 @@ public class Utils {
         return leads;
     }
     
-    public void writeAccountsJSON(List<Account> accountList) throws IOException {
+    public static void writeAccountsJSON(List<Account> accountList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/account.json");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -147,7 +147,7 @@ public class Utils {
         }
     }
 
-    public void writeContactsJSON(List<Contact> contactList) throws IOException {
+    public static void writeContactsJSON(List<Contact> contactList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/contact.json");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -158,7 +158,7 @@ public class Utils {
         }
     }
 
-    public void writeLeadsJSON(List<Lead> leadList) throws IOException {
+    public static void writeLeadsJSON(List<Lead> leadList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/lead.json");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -169,7 +169,7 @@ public class Utils {
         }
     }
 
-    public void writeOpportunityJSON(List<Opportunity> opportunityList) throws IOException {
+    public static void writeOpportunityJSON(List<Opportunity> opportunityList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/opportunity.json");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -179,7 +179,7 @@ public class Utils {
             ex.printStackTrace();
         }
     }
-    public void writeProductJSON(List<Product> productList) throws IOException {
+    public static void writeProductJSON(List<Product> productList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/product.json");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();

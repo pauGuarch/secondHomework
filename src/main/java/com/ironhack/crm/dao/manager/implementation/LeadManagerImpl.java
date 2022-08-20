@@ -1,16 +1,12 @@
 package com.ironhack.crm.dao.manager.implementation;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.ironhack.crm.dao.manager.LeadManager;
 import com.ironhack.crm.domain.models.Lead;
-
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
 import static com.ironhack.crm.utils.Utils.readLeads;
+import static com.ironhack.crm.utils.Utils.writeLeadsJSON;
 
 public class LeadManagerImpl implements LeadManager {
     private static LeadManagerImpl leadManager;
@@ -29,6 +25,13 @@ public class LeadManagerImpl implements LeadManager {
 
     @Override
     public void createNewLead(Lead lead) {
+        leads.add(lead);
+        try {
+            writeLeadsJSON(leads);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        checkLeads();
 
     }
 
