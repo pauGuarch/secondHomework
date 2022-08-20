@@ -6,6 +6,12 @@ import java.util.List;
 
 public class ProductManagerImpl implements ProductManager {
     private List<Product> products = checkProducts();
+
+    @Override
+    public void createProduct(Product product) {
+
+    }
+
     @Override
     public List<Product> checkProducts() {
         return null;

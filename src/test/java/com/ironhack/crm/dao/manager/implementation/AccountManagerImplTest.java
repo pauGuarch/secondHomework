@@ -27,19 +27,19 @@ class AccountManagerImplTest {
     @BeforeEach
     void setUp() {
         accountManager= new AccountManagerImpl();
-        contact = new Contact("sdfdsf","dsfdsfdsf","11111","fdfdsfdsfs");
+        contact = new Contact("Manolo", "manolo@gmail", "212512525", "RamonerCompany");
         contacts = new ArrayList<>();
-        product = new Product("sdfdsdfds", ProductType.HYBRID);
+        product = new Product("Samsung Galaxy", ProductType.HYBRID);
         opportunity = new Opportunity(contact,1, OpportunityStatus.OPEN,product);
         opportunities = new ArrayList<>();
         opportunities.add(opportunity);
         contacts.add(contact);
         account1 = new Account("IronHack",11,"dfs","SPAIN",contacts,opportunities);
-        account2 = new Account("RamonHack",11,"dfs","LATINSPAIN",contacts,opportunities);
+        account2 = new Account("RamonHack",11,"dfs","Portugal",contacts,opportunities);
     }
 
     @Test
-    void testCreateAccount() {
+    void testCreateAndCheckAccount() {
         accountManager.createAccount(account1);
         int index = accountManager.checkAccounts().indexOf(account1);
         assertEquals("IronHack", accountManager.checkAccounts().get(index).getIndustry());
@@ -47,10 +47,10 @@ class AccountManagerImplTest {
 
     @Test
     void testCheckAccounts() {
-        int accountSize = accountManager.checkAccounts().size();
+        int accountListSize = accountManager.checkAccounts().size();
         accountManager.createAccount(account1);
         accountManager.createAccount(account2);
         List<Account> accountList = accountManager.checkAccounts();
-        assertEquals(accountList.size(), accountSize + 2);
+        assertEquals(accountList.size(), accountListSize + 2);
     }
 }

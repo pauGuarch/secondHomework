@@ -9,7 +9,7 @@ public class AccountManagerImpl implements AccountManager {
     private List<Account> accounts = new ArrayList<>();
     @Override
     public void createAccount(Account account) {
-
+        accounts.add(account);
     }
 
     public List<Account> getAccounts() {
