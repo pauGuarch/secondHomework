@@ -1,9 +1,6 @@
 package com.ironhack.crm.domain.models;
 
-import com.ironhack.crm.dao.manager.implementation.AccountManagerImpl;
-import com.ironhack.crm.dao.manager.implementation.ContactManagerImpl;
-import com.ironhack.crm.dao.manager.implementation.LeadManagerImpl;
-import com.ironhack.crm.dao.manager.implementation.OpportunityManagerImpl;
+import com.ironhack.crm.dao.manager.implementation.*;
 import com.ironhack.crm.domain.enums.OpportunityStatus;
 
 import java.util.List;
@@ -18,13 +15,13 @@ public class CRM {
 
     private OpportunityManagerImpl opportunityManager;
 
+    private ProductManagerImpl productManager;
+
+
+
     public void createNewLead(Lead lead){
 
     }
-
-
-    public void associateOpportunityToAccount(){}
-
 
     public List<Lead> checkLeads(){
         return leadManager.checkLeads();
@@ -34,10 +31,20 @@ public class CRM {
         return null;
     }
 
-    public void convertLeadToOpportunity(Lead lead){
+
+    public void createAccount(Account account){
+        //create Account
     }
 
-    public void associateContactToOpportunity(){}
+    public List<Account> checkAccounts(){
+        return null;
+    }
+    public void convertLeadToOpportunity(String lead_id, Opportunity opportunity){
+        //create contact
+        //create opportunity
+        //associateOpportunityToAccount
+        //associateContactToOpportunity
+    }
 
     public void editOpportunityStatus(OpportunityStatus status){}
 
@@ -48,4 +55,6 @@ public class CRM {
     public static void lookUpOpportunity(UUID opportunityId){
         //System.out.println(opportunity.toString());
     }
+
+
 }
