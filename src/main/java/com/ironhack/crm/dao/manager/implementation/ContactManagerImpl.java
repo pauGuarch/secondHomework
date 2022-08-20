@@ -9,8 +9,22 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.ironhack.crm.utils.Utils.readContacts;
+
 public class ContactManagerImpl implements ContactManager {
-    private List<Contact> contacts = checkContacts();
+    private static ContactManagerImpl contactManager;
+    private List<Contact> contacts;
+
+    private ContactManagerImpl() {
+        this.contacts = checkContacts();
+    }
+
+    public static ContactManagerImpl getInstance() {
+        if (contactManager == null) {
+            contactManager = new ContactManagerImpl();
+        }
+        return contactManager;
+    }
     @Override
     public void createNewContact(Contact contact) {
 
@@ -18,17 +32,6 @@ public class ContactManagerImpl implements ContactManager {
 
     @Override
     public List<Contact> checkContacts() {
-        return null;
-    }
-
-    private static void readContacts(List<Contact> contacts) {
-        try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/contact.json"));
-            contacts = new Gson().fromJson(reader, new TypeToken<List<Contact>>() {}.getType());
-            reader.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        return this.contacts = readContacts();
     }
 }

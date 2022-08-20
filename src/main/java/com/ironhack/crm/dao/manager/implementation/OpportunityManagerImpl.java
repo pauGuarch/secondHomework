@@ -1,17 +1,26 @@
 package com.ironhack.crm.dao.manager.implementation;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.ironhack.crm.dao.manager.OpportunityManager;
 import com.ironhack.crm.domain.models.Opportunity;
-
-import java.io.Reader;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
+import static com.ironhack.crm.utils.Utils.readOpportunities;
+
 public class OpportunityManagerImpl implements OpportunityManager {
-    private List<Opportunity> opportunities = checkOpportunities();
+    private static OpportunityManagerImpl opportunityManager;
+    private List<Opportunity> opportunities;
+
+    private OpportunityManagerImpl() {
+        this.opportunities = checkOpportunities();
+    }
+
+    public static OpportunityManagerImpl getInstance() {
+        if (opportunityManager == null) {
+            opportunityManager = new OpportunityManagerImpl();
+        }
+        return opportunityManager;
+    }
+
     @Override
     public void createNewOpportunity(Opportunity lead) {
 
@@ -19,7 +28,7 @@ public class OpportunityManagerImpl implements OpportunityManager {
 
     @Override
     public List<Opportunity> checkOpportunities() {
-        return null;
+        return this.opportunities = readOpportunities();
     }
 
     @Override
@@ -27,15 +36,4 @@ public class OpportunityManagerImpl implements OpportunityManager {
         return null;
     }
 
-    private static void readOpportunities(List<Opportunity> opportunities) {
-        try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            opportunities = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
-            reader.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-    }
 }

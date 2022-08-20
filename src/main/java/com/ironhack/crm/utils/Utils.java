@@ -78,7 +78,6 @@ public class Utils {
     }
 
 
-
     public static List<Opportunity> readOpportunities() {
         List<Opportunity> opportunities = null;
         try {
@@ -136,6 +135,7 @@ public class Utils {
         }
         return leads;
     }
+    
     public void writeAccountsJSON(List<Account> accountList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/account.json");
