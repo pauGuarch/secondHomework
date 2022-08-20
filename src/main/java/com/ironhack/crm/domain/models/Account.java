@@ -5,6 +5,7 @@ import com.ironhack.crm.exceptions.EmptyStringException;
 import com.ironhack.crm.exceptions.IntegerException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Account {
@@ -14,11 +15,11 @@ public class Account {
     private Integer employeeCount;
     private String city;
     private String country;
-    private ArrayList<String> contactList;
-    private ArrayList<String> opportunityList;
+    private List<Contact> contactList;
+    private List<Opportunity> opportunityList;
 
 
-    public Account(String industry, Integer employeeCount, String city, String country, ArrayList<String> contactList, ArrayList<String> opportunityList) {
+    public Account(String industry, Integer employeeCount, String city, String country, List<Contact> contactList, List<Opportunity> opportunityList) {
         setId();
         this.industry = industry;
         this.employeeCount = employeeCount;
@@ -84,19 +85,19 @@ public class Account {
         }
     }
 
-    public ArrayList<String> getContactList() {
+    public List<Contact> getContactList() {
         return contactList;
     }
 
-    public void setContactList(ArrayList<String> contactList) {
+    public void setContactList(List<Contact> contactList) {
         this.contactList = contactList;
     }
 
-    public ArrayList<String> getOpportunityList() {
+    public List<Opportunity> getOpportunityList() {
         return opportunityList;
     }
 
-    public void setOpportunityList(ArrayList<String> opportunityList) {
+    public void setOpportunityList(List<Opportunity> opportunityList) {
         this.opportunityList = opportunityList;
     }
 }
