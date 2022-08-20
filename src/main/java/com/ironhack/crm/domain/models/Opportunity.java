@@ -10,28 +10,28 @@ public class Opportunity {
     private Integer quantity;
     private OpportunityStatus status;
     private Product product;
-    private Company company;
+    private Account account;
 
-    public Opportunity(Contact decisionMaker, int quantity, OpportunityStatus status, Product product, int quantity1, Company company) {
+    public Opportunity(Contact decisionMaker, int quantity, OpportunityStatus status, Product product, int quantity1, Account company) {
         setId();
     }
 
 
-    public Opportunity(Contact decisionMaker, Integer quantity, OpportunityStatus status, Product product, Company company) {
+    public Opportunity(Contact decisionMaker, Integer quantity, OpportunityStatus status, Product product, Account account) {
         setId();
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
         this.status = status;
         this.product = product;
-        this.company = company;
+        this.account = account;
     }
 
-    public Company getCompany() {
-        return company;
+    public Account getCompany() {
+        return account;
     }
 
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setCompany(Account company) {
+        this.account = account;
     }
 
     public Contact getDecisionMaker() {
