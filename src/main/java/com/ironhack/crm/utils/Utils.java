@@ -1,13 +1,11 @@
 package com.ironhack.crm.utils;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.ironhack.crm.domain.models.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -79,6 +77,7 @@ public class Utils {
         return validate;
     }
 
+
     public static List<Opportunity> readOpportunities() {
         List<Opportunity> opportunities = null;
         try {
@@ -136,8 +135,58 @@ public class Utils {
         }
         return leads;
     }
+    
+    public void writeAccountsJSON(List<Account> accountList) throws IOException {
+        try {
+            Writer writer = new FileWriter("./src/main/resources/data/account.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(accountList, writer);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
+    public void writeContactsJSON(List<Contact> contactList) throws IOException {
+        try {
+            Writer writer = new FileWriter("./src/main/resources/data/contact.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(contactList, writer);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
+    public void writeLeadsJSON(List<Lead> leadList) throws IOException {
+        try {
+            Writer writer = new FileWriter("./src/main/resources/data/lead.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(leadList, writer);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 
-
+    public void writeOpportunityJSON(List<Opportunity> opportunityList) throws IOException {
+        try {
+            Writer writer = new FileWriter("./src/main/resources/data/opportunity.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(opportunityList, writer);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    public void writeProductJSON(List<Product> productList) throws IOException {
+        try {
+            Writer writer = new FileWriter("./src/main/resources/data/product.json");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(productList, writer);
+            writer.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
 }
