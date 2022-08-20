@@ -1,22 +1,22 @@
-package com.ironhack.crm.models;
+package com.ironhack.crm.domain.models;
 
-import com.ironhack.crm.models.enums.OportunityStatus;
+import com.ironhack.crm.domain.enums.OpportunityStatus;
 
 import java.util.UUID;
 
-public class Oportunity {
+public class Opportunity {
     private UUID id;
     private Contact decisionMaker;
     private int quantity;
-    private OportunityStatus status;
+    private OpportunityStatus status;
     private String product;
     private Company company;
 
-    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status, String product, int quantity1, Company company) {
+    public Opportunity(UUID id, Contact decisionMaker, int quantity, OpportunityStatus status, String product, int quantity1, Company company) {
     }
 
 
-    public Oportunity(UUID id, Contact decisionMaker, int quantity, OportunityStatus status) {
+    public Opportunity(UUID id, Contact decisionMaker, int quantity, OpportunityStatus status) {
         this.id = id;
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
@@ -49,11 +49,11 @@ public class Oportunity {
         this.quantity = quantity;
     }
 
-    public OportunityStatus getStatus() {
+    public OpportunityStatus getStatus() {
         return status;
     }
 
-    public void setStatus(OportunityStatus status) {
+    public void setStatus(OpportunityStatus status) {
         this.status = status;
     }
 
@@ -73,8 +73,8 @@ public class Oportunity {
         this.product = product;
     }
 
-    public boolean close(OportunityStatus status){
-        if (status == OportunityStatus.CLOSED_LOST || status == OportunityStatus.CLOSED_WON){
+    public boolean close(OpportunityStatus status){
+        if (status == OpportunityStatus.CLOSED_LOST || status == OpportunityStatus.CLOSED_WON){
             setStatus(status);
             return true;
         }else{

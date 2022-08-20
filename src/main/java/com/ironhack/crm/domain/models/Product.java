@@ -1,4 +1,6 @@
-package Homework2;
+package com.ironhack.crm.domain.models;
+
+import com.ironhack.crm.domain.enums.ProductType;
 
 import java.util.UUID;
 
