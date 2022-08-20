@@ -26,7 +26,7 @@ class AccountManagerImplTest {
     private Product product;
     @BeforeEach
     void setUp() {
-        accountManager= new AccountManagerImpl();
+        //accountManager= new AccountManagerImpl();
         contact = new Contact("sdfdsf","dsfdsfdsf","11111","fdfdsfdsfs");
         contacts = new ArrayList<>();
         product = new Product("sdfdsdfds", ProductType.HYBRID);

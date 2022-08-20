@@ -2,10 +2,7 @@ package com.ironhack.crm.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.ironhack.crm.domain.models.Account;
-import com.ironhack.crm.domain.models.Contact;
-import com.ironhack.crm.domain.models.Opportunity;
-import com.ironhack.crm.domain.models.Product;
+import com.ironhack.crm.domain.models.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -82,10 +79,9 @@ public class Utils {
         return validate;
     }
 
-    private static List<Opportunity> readOpportunities() {
+    public static List<Opportunity> readOpportunities() {
         List<Opportunity> opportunities = null;
         try {
-            Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
             opportunities = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
             reader.close();
@@ -95,10 +91,9 @@ public class Utils {
         return opportunities;
     }
 
-    private static List<Contact> readContacts() {
+    public static List<Contact> readContacts() {
         List<Contact> contacts = null;
         try {
-            Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
             contacts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
             reader.close();
@@ -107,10 +102,9 @@ public class Utils {
         }
         return contacts;
     }
-    private static List<Account> readAccounts() {
+    public static List<Account> readAccounts() {
         List<Account> accounts = null;
         try {
-            Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
             accounts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
             reader.close();
@@ -119,10 +113,9 @@ public class Utils {
         }
         return accounts;
     }
-    private static List<Product> readProduct() {
+    public static List<Product> readProduct() {
         List<Product> products = null;
         try {
-            Gson gson = new Gson();
             Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
             products = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
             reader.close();
@@ -130,6 +123,18 @@ public class Utils {
             ex.printStackTrace();
         }
         return products;
+    }
+
+    public static List<Lead> readLeads() {
+        List<Lead> leads = null;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/lead.json"));
+            leads = new Gson().fromJson(reader, new TypeToken<List<Lead>>() {}.getType());
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return leads;
     }
 
 
