@@ -1,35 +1,40 @@
 package com.ironhack.crm.domain.models;
 
 import com.ironhack.crm.domain.enums.ProductType;
+import com.ironhack.crm.exceptions.EmptyStringException;
 
 import java.util.UUID;
 
 public class Product {
 
-    UUID uuid = UUID.randomUUID();
+    UUID id;
     private String productName;
     private ProductType productType;
 
-    public Product(UUID uuid, String productName, ProductType productType) {
-        this.uuid = uuid;
+    public Product(String productName, ProductType productType) {
+        setId();
         this.productName = productName;
         this.productType = productType;
     }
 
-    public UUID getUuid() {
-        return uuid;
+    public UUID getId() {
+        return id;
     }
 
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
+    public void setId() {
+        this.id = UUID.randomUUID();
     }
 
     public String getProductName() {
         return productName;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setProductName(String productName) throws EmptyStringException {
+        if(!productName.isEmpty()){
+            this.productName = productName;
+        }else {
+            throw new EmptyStringException();
+        }
     }
 
     public ProductType getProductType() {
