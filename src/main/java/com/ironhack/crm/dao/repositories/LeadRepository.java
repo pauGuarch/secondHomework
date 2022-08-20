@@ -1,2 +1,2 @@
-package com.ironhack.crm.dao.repositories;public class LeadRepository {
+package com.ironhack.crm.dao.repositories;public interface LeadRepository {
 }

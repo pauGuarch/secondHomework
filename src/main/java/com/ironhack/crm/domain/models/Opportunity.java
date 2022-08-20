@@ -7,17 +7,18 @@ import java.util.UUID;
 public class Opportunity {
     private UUID id;
     private Contact decisionMaker;
-    private int quantity;
+    private Integer quantity;
     private OpportunityStatus status;
-    private String product;
+    private Product product;
     private Company company;
 
-    public Opportunity(UUID id, Contact decisionMaker, int quantity, OpportunityStatus status, String product, int quantity1, Company company) {
+    public Opportunity(Contact decisionMaker, int quantity, OpportunityStatus status, Product product, int quantity1, Company company) {
+        setId();
     }
 
 
-    public Opportunity(UUID id, Contact decisionMaker, int quantity, OpportunityStatus status) {
-        this.id = id;
+    public Opportunity(Contact decisionMaker, Integer quantity, OpportunityStatus status, Product product, Company company) {
+        setId();
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
         this.status = status;
@@ -61,15 +62,15 @@ public class Opportunity {
         return id;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setId() {
+        this.id = UUID.randomUUID();
     }
 
-    public String getProduct() {
+    public Product getProduct() {
         return product;
     }
 
-    public void setProduct(String product) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 
@@ -83,8 +84,5 @@ public class Opportunity {
     }
     public boolean close(){
         return true;
-    }
-    public void lookUp(){
-
     }
 }

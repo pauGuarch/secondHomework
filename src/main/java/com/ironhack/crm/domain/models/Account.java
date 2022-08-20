@@ -11,16 +11,16 @@ public class Account {
     private String city;
     private String country;
     private ArrayList<String> contactList;
-    private ArrayList<String> oportunityList;
+    private ArrayList<String> opportunityList;
 
 
-    public Account(String industry, int employeeCount, String city, String country, ArrayList<String> contactList, ArrayList<String> oportunityList) {
+    public Account(String industry, int employeeCount, String city, String country, ArrayList<String> contactList, ArrayList<String> opportunityList) {
         this.industry = industry;
         this.employeeCount = employeeCount;
         this.city = city;
         this.country = country;
         this.contactList = contactList;
-        this.oportunityList = oportunityList;
+        this.opportunityList = opportunityList;
     }
 
     public UUID getUuid() {
@@ -71,11 +71,11 @@ public class Account {
         this.contactList = contactList;
     }
 
-    public ArrayList<String> getOportunityList() {
-        return oportunityList;
+    public ArrayList<String> getOpportunityList() {
+        return opportunityList;
     }
 
-    public void setOportunityList(ArrayList<String> oportunityList) {
-        this.oportunityList = oportunityList;
+    public void setOpportunityList(ArrayList<String> opportunityList) {
+        this.opportunityList = opportunityList;
     }
 }
