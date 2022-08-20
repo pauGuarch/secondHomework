@@ -3,7 +3,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ironhack.crm.dao.manager.LeadManager;
 import com.ironhack.crm.domain.models.Lead;
-import com.ironhack.crm.domain.models.Product;
 
 import java.io.Reader;
 import java.nio.file.Files;
@@ -11,15 +10,30 @@ import java.nio.file.Paths;
 import java.util.List;
 import java.util.UUID;
 
+import static com.ironhack.crm.utils.Utils.readLeads;
+
 public class LeadManagerImpl implements LeadManager {
-    private List<Lead> leads = checkLeads();
+    private static LeadManagerImpl leadManager;
+    private List<Lead> leads;
+
+    private LeadManagerImpl() {
+        this.leads = checkLeads();
+    }
+
+    public static LeadManagerImpl getInstance() {
+        if (leadManager == null) {
+            leadManager = new LeadManagerImpl();
+        }
+        return leadManager;
+    }
+
     @Override
     public void createNewLead(Lead lead) {
 
     }
 
     public List<Lead> checkLeads(){
-        return null;
+        return this.leads = readLeads();
     }
 
     @Override
@@ -30,16 +44,5 @@ public class LeadManagerImpl implements LeadManager {
     @Override
     public void removeLead(Lead lead) {
 
-    }
-
-    private static void readLead(List<Lead> leads) {
-        try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/lead.json"));
-            leads = new Gson().fromJson(reader, new TypeToken<List<Lead>>() {}.getType());
-            reader.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
     }
 }

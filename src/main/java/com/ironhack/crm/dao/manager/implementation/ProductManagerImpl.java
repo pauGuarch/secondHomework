@@ -9,21 +9,26 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.ironhack.crm.utils.Utils.readProduct;
+
 public class ProductManagerImpl implements ProductManager {
-    private List<Product> products = checkProducts();
-    @Override
-    public List<Product> checkProducts() {
-        return null;
+    private static ProductManagerImpl productManager;
+    private List<Product> products;
+
+    private ProductManagerImpl() {
+        this.products = checkProducts();
     }
 
-    private static void readProduct(List<Product> products) {
-        try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/product.json"));
-            products = new Gson().fromJson(reader, new TypeToken<List<Product>>() {}.getType());
-            reader.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
+    public static ProductManagerImpl getInstance() {
+        if (productManager == null) {
+            productManager = new ProductManagerImpl();
         }
+        return productManager;
     }
+
+    @Override
+    public List<Product> checkProducts() {
+        return this.products = readProduct();
+    }
+
 }

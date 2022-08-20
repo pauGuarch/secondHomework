@@ -9,8 +9,24 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import static com.ironhack.crm.utils.Utils.readAccounts;
+
 public class AccountManagerImpl implements AccountManager {
-    private List<Account> accounts = checkAccounts();
+    private static AccountManagerImpl accountManager;
+    private List<Account> accounts;
+
+    private AccountManagerImpl() {
+        this.accounts = checkAccounts();
+    }
+
+    public static AccountManagerImpl getInstance() {
+        if (accountManager == null) {
+            accountManager = new AccountManagerImpl();
+        }
+        return accountManager;
+    }
+
+
     @Override
     public void createAccount(Account account) {
 
@@ -18,17 +34,6 @@ public class AccountManagerImpl implements AccountManager {
 
     @Override
     public List<Account> checkAccounts() {
-        return null;
-    }
-
-    private static void readAccounts(List<Account> accounts) {
-        try {
-            Gson gson = new Gson();
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/account.json"));
-            accounts = new Gson().fromJson(reader, new TypeToken<List<Account>>() {}.getType());
-            reader.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        return this.accounts = readAccounts();
     }
 }
