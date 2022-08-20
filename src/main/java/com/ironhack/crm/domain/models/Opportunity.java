@@ -12,16 +12,13 @@ public class Opportunity {
     private OpportunityStatus status;
     private Product product;
 
-    private Account account;
 
-
-    public Opportunity(Contact decisionMaker, Integer quantity, OpportunityStatus status, Product product, Account account) {
+    public Opportunity(Contact decisionMaker, Integer quantity, OpportunityStatus status, Product product) {
         setId();
         this.decisionMaker = decisionMaker;
         this.quantity = quantity;
         this.status = status;
         this.product = product;
-        this.account = account;
     }
 
     public Contact getDecisionMaker() {
@@ -77,13 +74,6 @@ public class Opportunity {
         }
     }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    public void setAccount(Account account) {
-        this.account = account;
-    }
 
     public boolean close(){
         return true;
