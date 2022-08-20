@@ -78,6 +78,64 @@ public class Utils {
     }
 
 
+
+    public static List<Opportunity> readOpportunities() {
+        List<Opportunity> opportunities = null;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
+            opportunities = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return opportunities;
+    }
+
+    public static List<Contact> readContacts() {
+        List<Contact> contacts = null;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
+            contacts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return contacts;
+    }
+    public static List<Account> readAccounts() {
+        List<Account> accounts = null;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
+            accounts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return accounts;
+    }
+    public static List<Product> readProduct() {
+        List<Product> products = null;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
+            products = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return products;
+    }
+
+    public static List<Lead> readLeads() {
+        List<Lead> leads = null;
+        try {
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/lead.json"));
+            leads = new Gson().fromJson(reader, new TypeToken<List<Lead>>() {}.getType());
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return leads;
+    }
     public void writeAccountsJSON(List<Account> accountList) throws IOException {
         try {
             Writer writer = new FileWriter("./src/main/resources/data/account.json");
