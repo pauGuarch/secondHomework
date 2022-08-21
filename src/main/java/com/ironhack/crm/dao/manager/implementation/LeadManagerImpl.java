@@ -1,12 +1,13 @@
 package com.ironhack.crm.dao.manager.implementation;
 import com.ironhack.crm.dao.manager.LeadManager;
+import com.ironhack.crm.domain.models.Account;
 import com.ironhack.crm.domain.models.Lead;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.ironhack.crm.utils.Utils.readLeads;
-import static com.ironhack.crm.utils.Utils.writeLeadsJSON;
+import static com.ironhack.crm.utils.Utils.*;
 
 public class LeadManagerImpl implements LeadManager {
     private static LeadManagerImpl leadManager;
@@ -14,6 +15,9 @@ public class LeadManagerImpl implements LeadManager {
 
     private LeadManagerImpl() {
         this.leads = checkLeads();
+        if (leads == null){
+            leads = new ArrayList<>();
+        }
     }
 
     public static LeadManagerImpl getInstance() {
@@ -32,7 +36,6 @@ public class LeadManagerImpl implements LeadManager {
             e.printStackTrace();
         }
         checkLeads();
-
     }
 
     public List<Lead> checkLeads(){
@@ -41,11 +44,20 @@ public class LeadManagerImpl implements LeadManager {
 
     @Override
     public Lead lookUpLead(UUID leadId) {
-        return null;
+        return leads.stream().filter(l->l.getId().equals(leadId)).findFirst().get();
     }
 
     @Override
-    public void removeLead(Lead lead) {
-
+    public List<Lead> removeLead(UUID leadId) {
+        try {
+            Lead leadDel = leads.stream()
+                    .filter(account -> account.getId().equals(leadId)).findFirst().get();
+            leads.remove(leadDel);
+            writeLeadsJSON(leads);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        checkLeads();
+        return leads;
     }
 }

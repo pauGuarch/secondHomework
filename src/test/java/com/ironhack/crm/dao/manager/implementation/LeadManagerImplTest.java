@@ -1,5 +1,6 @@
 package com.ironhack.crm.dao.manager.implementation;
 
+import com.ironhack.crm.domain.models.Contact;
 import com.ironhack.crm.domain.models.Lead;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,7 @@ class LeadManagerImplTest {
 
     @BeforeEach
     void setUp() {
+        leadManager = LeadManagerImpl.getInstance();
         lead1 = new Lead("Julian", "Ironhack", "juli@gjasof.com", "125252152");
         lead2 = new Lead("Ramona", "Ironhack", "Ramona@gjasof.com", "125125252152");
     }
@@ -23,8 +25,10 @@ class LeadManagerImplTest {
     @Test
     void testCreateNewLeadAndCheckLeads(){
         leadManager.createNewLead(lead1);
-        int index = leadManager.checkLeads().indexOf(lead1);
-        assertEquals("juli@gjasof.com", leadManager.checkLeads().get(index).getEmail());
+        Lead testLead = leadManager.checkLeads().stream()
+                .filter(lead -> lead.getId().equals(lead1.getId())).findFirst().get();
+        assertEquals("Julian", testLead.getName());
+        leadManager.removeLead(lead1.getId());
     }
 
     @Test
@@ -32,12 +36,7 @@ class LeadManagerImplTest {
         leadManager.createNewLead(lead2);
         Lead lookedLead = leadManager.lookUpLead(lead2.getId());
         assertEquals("125125252152", lookedLead.getPhoneNumber());
+        leadManager.removeLead(lead2.getId());
     }
 
-    @Test
-    void testRemoveLead(){
-        leadManager.createNewLead(lead1);
-        leadManager.removeLead(lead1);
-        assertEquals(leadManager.checkLeads().indexOf(lead1), -1);
-    }
 }

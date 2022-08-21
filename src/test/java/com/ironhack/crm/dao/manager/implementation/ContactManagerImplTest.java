@@ -2,6 +2,7 @@ package com.ironhack.crm.dao.manager.implementation;
 
 import com.ironhack.crm.domain.models.Account;
 import com.ironhack.crm.domain.models.Contact;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,16 +18,21 @@ class ContactManagerImplTest {
 
     @BeforeEach
     void setUp() {
+        contactManager = ContactManagerImpl.getInstance();
         contact1 = new Contact("Manolo", "manolo@gmail", "212512525", "RamonerCompany");
         contact2 = new Contact("Rubi", "rubi@gmail", "212512525", "RamonerCompany");
     }
 
+
     @Test
     void testCreateNewContact() {
         contactManager.createNewContact(contact1);
-        int index = contactManager.checkContacts().indexOf(contact1);
-        assertEquals("Manolo", contactManager.checkContacts().get(index).getName());
+        Contact testContact = contactManager.checkContacts().stream()
+                .filter(contact -> contact.getId().equals(contact1.getId())).findFirst().get();
+        assertEquals("Manolo", testContact.getName());
+        contactManager.deleteContact(contact1.getId());
     }
+
 
     @Test
     void testCheckContacts() {
@@ -35,5 +41,9 @@ class ContactManagerImplTest {
         contactManager.createNewContact(contact2);
         List<Contact> contactList = contactManager.checkContacts();
         assertEquals(contactList.size(), contactListSize + 2);
+        contactManager.deleteContact(contact1.getId());
+        contactManager.deleteContact(contact2.getId());
     }
+
+
 }
