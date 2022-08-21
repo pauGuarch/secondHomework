@@ -69,7 +69,7 @@ public class CRM {
         return opportunityManager.checkOpportunities();
     }
 
-    public Opportunity lookUpOpportunity(String opportunityId){
-        return opportunityManager.lookUpOpportunity(UUID.fromString(opportunityId));
+    public Opportunity lookUpOpportunity(UUID opportunityId){
+        return opportunityManager.lookUpOpportunity(opportunityId);
     }
 }

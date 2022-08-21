@@ -9,9 +9,11 @@
       "companyName": "DonPiso"
     },
     "quantity": 1,
+    "status": "OPEN",
     "product": {
       "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-      "productName": "Truck HGT"
+      "productName": "Truck HGT",
+      "productType": "HYBRID"
     }
   },
   {
@@ -24,9 +26,28 @@
       "companyName": "DonPiso"
     },
     "quantity": 3,
+    "status": "OPEN",
     "product": {
       "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-      "productName": "Truck HGT"
+      "productName": "Truck HGT",
+      "productType": "HYBRID"
+    }
+  },
+  {
+    "id": "bcd4a562-a023-4bb0-8262-cf298e751d74",
+    "decisionMaker": {
+      "id": "b0681838-c460-42ba-9797-954775d79a0c",
+      "name": "Manolo",
+      "email": "manolo@gmail",
+      "phoneNumber": "212512525",
+      "companyName": "RamonerCompany"
+    },
+    "quantity": 40,
+    "status": "OPEN",
+    "product": {
+      "id": "d45c7a08-6f00-47ec-b0b2-454d83f24124",
+      "productName": "Samsung Galaxy",
+      "productType": "HYBRID"
     }
   }
 ]
