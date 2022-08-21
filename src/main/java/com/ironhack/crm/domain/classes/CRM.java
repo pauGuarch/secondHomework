@@ -1,7 +1,10 @@
-package com.ironhack.crm.domain.models;
+package com.ironhack.crm.domain.classes;
 
 import com.ironhack.crm.dao.manager.implementation.*;
 import com.ironhack.crm.domain.enums.OpportunityStatus;
+import com.ironhack.crm.domain.models.Account;
+import com.ironhack.crm.domain.models.Lead;
+import com.ironhack.crm.domain.models.Opportunity;
 
 import java.util.List;
 import java.util.UUID;
