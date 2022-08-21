@@ -20,7 +20,13 @@ public class CRM {
 
     private ProductManagerImpl productManager;
 
-
+    public CRM() {
+        accountManager = AccountManagerImpl.getInstance();
+        contactManager = ContactManagerImpl.getInstance();
+        leadManager = LeadManagerImpl.getInstance();
+        opportunityManager = OpportunityManagerImpl.getInstance();
+        productManager = ProductManagerImpl.getInstance();
+    }
 
     public void createNewLead(Lead lead){
 
