@@ -1,0 +1,120 @@
+[
+  {
+    "id": "c35094d1-26c6-40a3-956e-cf6a7256352c",
+    "industry": "Industry1",
+    "employeeCount": 5,
+    "city": "bcn",
+    "country": "spain",
+    "contactList": [
+      {
+        "id": "3c4d7e3f-2805-41c4-b276-53ad3a63d6e3",
+        "name": "Juan",
+        "email": "\u003c@juan",
+        "phoneNumber": "647733243",
+        "companyName": "Company1"
+      },
+      {
+        "id": "aaca4ebd-4397-4a37-b5ec-0ac4cabda92e",
+        "name": "Pedro",
+        "email": "\u003c@pedro",
+        "phoneNumber": "647755543",
+        "companyName": "Company2"
+      }
+    ],
+    "opportunityList": [
+      {
+        "id": "f064c417-91d3-4ec1-b038-6f07168709f3",
+        "decisionMaker": {
+          "id": "3c4d7e3f-2805-41c4-b276-53ad3a63d6e3",
+          "name": "Juan",
+          "email": "\u003c@juan",
+          "phoneNumber": "647733243",
+          "companyName": "Company1"
+        },
+        "quantity": 3,
+        "status": "OPEN",
+        "product": {
+          "id": "3cbb7ed5-da31-42e2-94d6-c15f80880ec7",
+          "productName": "product1",
+          "productType": "FLATBED"
+        }
+      },
+      {
+        "id": "b7f21517-527a-4853-b24b-10e9f81d41ff",
+        "decisionMaker": {
+          "id": "aaca4ebd-4397-4a37-b5ec-0ac4cabda92e",
+          "name": "Pedro",
+          "email": "\u003c@pedro",
+          "phoneNumber": "647755543",
+          "companyName": "Company2"
+        },
+        "quantity": 6,
+        "status": "CLOSED_LOST",
+        "product": {
+          "id": "3cbb7ed5-da31-42e2-94d6-c15f80880ec7",
+          "productName": "product1",
+          "productType": "FLATBED"
+        }
+      }
+    ]
+  },
+  {
+    "id": "9fd67927-95d8-4578-8bd5-00b5efe017c9",
+    "industry": "Industry2",
+    "employeeCount": 10,
+    "city": "bdn",
+    "country": "ravalistan",
+    "contactList": [
+      {
+        "id": "3c4d7e3f-2805-41c4-b276-53ad3a63d6e3",
+        "name": "Juan",
+        "email": "\u003c@juan",
+        "phoneNumber": "647733243",
+        "companyName": "Company1"
+      },
+      {
+        "id": "aaca4ebd-4397-4a37-b5ec-0ac4cabda92e",
+        "name": "Pedro",
+        "email": "\u003c@pedro",
+        "phoneNumber": "647755543",
+        "companyName": "Company2"
+      }
+    ],
+    "opportunityList": [
+      {
+        "id": "f064c417-91d3-4ec1-b038-6f07168709f3",
+        "decisionMaker": {
+          "id": "3c4d7e3f-2805-41c4-b276-53ad3a63d6e3",
+          "name": "Juan",
+          "email": "\u003c@juan",
+          "phoneNumber": "647733243",
+          "companyName": "Company1"
+        },
+        "quantity": 3,
+        "status": "OPEN",
+        "product": {
+          "id": "3cbb7ed5-da31-42e2-94d6-c15f80880ec7",
+          "productName": "product1",
+          "productType": "FLATBED"
+        }
+      },
+      {
+        "id": "b7f21517-527a-4853-b24b-10e9f81d41ff",
+        "decisionMaker": {
+          "id": "aaca4ebd-4397-4a37-b5ec-0ac4cabda92e",
+          "name": "Pedro",
+          "email": "\u003c@pedro",
+          "phoneNumber": "647755543",
+          "companyName": "Company2"
+        },
+        "quantity": 6,
+        "status": "CLOSED_LOST",
+        "product": {
+          "id": "3cbb7ed5-da31-42e2-94d6-c15f80880ec7",
+          "productName": "product1",
+          "productType": "FLATBED"
+        }
+      }
+    ]
+  }
+]
