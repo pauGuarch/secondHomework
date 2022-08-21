@@ -93,8 +93,8 @@ public class Utils {
     public static List<Contact> readContacts() {
         List<Contact> contacts = null;
         try {
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            contacts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/contact.json"));
+            contacts = new Gson().fromJson(reader, new TypeToken<List<Contact>>() {}.getType());
             reader.close();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -104,8 +104,8 @@ public class Utils {
     public static List<Account> readAccounts() {
         List<Account> accounts = null;
         try {
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            accounts = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/account.json"));
+            accounts = new Gson().fromJson(reader, new TypeToken<List<Account>>() {}.getType());
             reader.close();
         } catch (Exception ex) {
             ex.printStackTrace();

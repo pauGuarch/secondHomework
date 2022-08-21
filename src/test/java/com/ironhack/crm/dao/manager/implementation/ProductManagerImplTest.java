@@ -21,7 +21,7 @@ class ProductManagerImplTest {
 
     @Test
     void testCreateAndCheckProducts() {
-        productManager.createProduct(product1);
+        //productManager.createProduct(product1);
         int index = productManager.checkProducts().indexOf(product1);
         assertEquals(ProductType.HYBRID, productManager.checkProducts().get(index).getProductType());
     }
