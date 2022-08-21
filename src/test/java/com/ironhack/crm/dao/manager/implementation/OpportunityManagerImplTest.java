@@ -20,6 +20,7 @@ class OpportunityManagerImplTest {
 
     @BeforeEach
     void setUp() {
+        opportunityManager = OpportunityManagerImpl.getInstance();
         contact1 = new Contact("Manolo", "manolo@gmail", "212512525", "RamonerCompany");
         contact2 = new Contact("Rubi", "rubi@gmail", "212512525", "RamonerCompany");
         product = new Product("Samsung Galaxy", ProductType.HYBRID);
@@ -30,10 +31,9 @@ class OpportunityManagerImplTest {
     @Test
     void testCreateNewAndCheckOpportunity() {
         opportunityManager.createNewOpportunity(opportunity1);
-        opportunityManager.createNewOpportunity(opportunity2);
-        assertTrue(opportunityManager.checkOpportunities().indexOf(opportunity1) != -1);
-        int index = opportunityManager.checkOpportunities().indexOf(contact2);
-        assertEquals("rubi@gmail", opportunityManager.checkOpportunities().get(index));
+        Opportunity testOpportunity = opportunityManager.lookUpOpportunity(opportunity1.getId());
+        assertEquals("Manolo", testOpportunity.getDecisionMaker().getName());
+        opportunityManager.removeOpportunity(opportunity1.getId());
     }
 
     @Test

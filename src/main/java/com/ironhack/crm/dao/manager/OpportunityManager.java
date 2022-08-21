@@ -7,4 +7,5 @@ public interface OpportunityManager {
     void createNewOpportunity(Opportunity lead);
     List<Opportunity> checkOpportunities();
     Opportunity lookUpOpportunity(UUID opportunityId);
+    List<Opportunity> removeOpportunity(UUID id);
 }

@@ -1,71 +1,32 @@
 [
   {
-    "uuid": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
+    "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505aa",
     "decisionMaker": {
       "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
       "name": "Peter",
       "email": "peter@email.com",
-      "phoneNumber": 678333555,
-      "companyName":"DonPiso"
+      "phoneNumber": "678333555",
+      "companyName": "DonPiso"
     },
     "quantity": 1,
-    "opportunityStatus": "OPEN",
     "product": {
       "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-      "productName": "Truck HGT",
-      "productType": "TRUCK"
-    },
-    "account": {
-      "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-      "employeeCount": 45,
-      "city": "Barcelona",
-      "country": "Espein",
-      "contactList": [
-        {
-          "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-          "name": "Sebastian",
-          "email": "sebas@tian.com",
-          "phoneNumber": 785566735,
-          "company-name": "Vomistar"
-        },
-        {
-          "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-          "name": "Sebastian",
-          "email": "sebas@tian.com",
-          "phoneNumber": 785566735,
-          "company-name": "Vomistar"
-        }
-      ]
+      "productName": "Truck HGT"
     }
   },
   {
-    "uuid": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
+    "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505bb",
     "decisionMaker": {
       "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
       "name": "Peter",
       "email": "peter@email.com",
-      "phoneNumber": 678333555,
-      "companyName":"DonPiso"
+      "phoneNumber": "678333555",
+      "companyName": "DonPiso"
     },
     "quantity": 3,
-    "opportunityStatus": "OPEN",
     "product": {
       "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-      "productName": "Truck HGT",
-      "productType": "TRUCK"
-    },
-    "account": {
-      "id": "cef0cbf3-6458-4f13-a418-ee4d7e7505dd",
-      "employeeCount": 45,
-      "city": "Barcelona",
-      "country": "Espein",
-      "contactList":[{
-        "id": "08",
-        "name": "Sebastian",
-        "email": "sebas@tian.com",
-        "phoneNumber": 785566735,
-        "company-name": "Vomistar"
-      }]
+      "productName": "Truck HGT"
     }
   }
 ]

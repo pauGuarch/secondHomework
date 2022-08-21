@@ -115,8 +115,8 @@ public class Utils {
     public static List<Product> readProduct() {
         List<Product> products = null;
         try {
-            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/opportunity.json"));
-            products = new Gson().fromJson(reader, new TypeToken<List<Opportunity>>() {}.getType());
+            Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/product.json"));
+            products = new Gson().fromJson(reader, new TypeToken<List<Product>>() {}.getType());
             reader.close();
         } catch (Exception ex) {
             ex.printStackTrace();

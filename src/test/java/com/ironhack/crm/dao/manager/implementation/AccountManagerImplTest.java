@@ -6,7 +6,6 @@ import com.ironhack.crm.domain.models.Account;
 import com.ironhack.crm.domain.models.Contact;
 import com.ironhack.crm.domain.models.Opportunity;
 import com.ironhack.crm.domain.models.Product;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -42,8 +41,10 @@ class AccountManagerImplTest {
     @Test
     void testCreateAndCheckAccount() {
         accountManager.createAccount(account1);
-        int index = accountManager.checkAccounts().indexOf(account1);
-        assertEquals("IronHack", accountManager.checkAccounts().get(index).getIndustry());
+        Account testAccount = accountManager.checkAccounts().stream()
+                        .filter(account -> account.getId().equals(account1.getId())).findFirst().get();
+        assertEquals("IronHack", testAccount.getIndustry());
+        accountManager.deleteAccount(account1.getId());
     }
 
     @Test
@@ -53,5 +54,7 @@ class AccountManagerImplTest {
         accountManager.createAccount(account2);
         List<Account> accountList = accountManager.checkAccounts();
         assertEquals(accountList.size(), accountListSize + 2);
+        accountManager.deleteAccount(account1.getId());
+        accountManager.deleteAccount(account2.getId());
     }
 }

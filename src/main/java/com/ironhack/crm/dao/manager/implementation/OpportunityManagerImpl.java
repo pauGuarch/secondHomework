@@ -1,12 +1,13 @@
 package com.ironhack.crm.dao.manager.implementation;
 import com.ironhack.crm.dao.manager.OpportunityManager;
+import com.ironhack.crm.domain.models.Account;
 import com.ironhack.crm.domain.models.Opportunity;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import static com.ironhack.crm.utils.Utils.readOpportunities;
-import static com.ironhack.crm.utils.Utils.writeOpportunityJSON;
+import static com.ironhack.crm.utils.Utils.*;
 
 public class OpportunityManagerImpl implements OpportunityManager {
     private static OpportunityManagerImpl opportunityManager;
@@ -14,6 +15,9 @@ public class OpportunityManagerImpl implements OpportunityManager {
 
     private OpportunityManagerImpl() {
         this.opportunities = checkOpportunities();
+        if (opportunities == null){
+            opportunities = new ArrayList<>();
+        }
     }
 
     public static OpportunityManagerImpl getInstance() {
@@ -41,7 +45,22 @@ public class OpportunityManagerImpl implements OpportunityManager {
 
     @Override
     public Opportunity lookUpOpportunity(UUID opportunityId) {
-        return null;
+        Opportunity opportunity = opportunities.stream()
+                .filter(o -> o.getId().equals(opportunityId)).findFirst().get();
+        return opportunity;
+    }
+
+    @Override
+    public List<Opportunity> removeOpportunity(UUID id) {
+        try {
+            Opportunity opportunityDel = lookUpOpportunity(id);
+            opportunities.remove(opportunityDel);
+            writeOpportunityJSON(opportunities);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        checkOpportunities();
+        return opportunities;
     }
 
 }

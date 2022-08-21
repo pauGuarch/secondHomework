@@ -9,5 +9,5 @@ public interface LeadManager {
     void createNewLead(Lead lead);
     List<Lead> checkLeads();
     Lead lookUpLead(UUID leadId);
-    void removeLead(Lead lead);
+    List<Lead> removeLead(UUID leadId);
 }
