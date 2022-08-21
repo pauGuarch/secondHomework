@@ -28,6 +28,7 @@ class AccountManagerImplTest {
     void setUp() {
         accountManager= new AccountManagerImpl();
         contact = new Contact("Manolo", "manolo@gmail", "212512525", "RamonerCompany");
+
         contacts = new ArrayList<>();
         product = new Product("Samsung Galaxy", ProductType.HYBRID);
         opportunity = new Opportunity(contact,1, OpportunityStatus.OPEN,product);
