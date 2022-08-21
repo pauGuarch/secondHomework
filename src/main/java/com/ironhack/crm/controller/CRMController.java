@@ -5,6 +5,14 @@ import com.ironhack.crm.utils.Utils;
 import java.util.Scanner;
 
 public class CRMController {
+
+    public void runCRM() {
+
+    }
+
+    private void exitCRM() {
+        System.exit(0);
+    }
     private static String getLeadNameInput(){
         boolean isName = false;
         String name = "";
