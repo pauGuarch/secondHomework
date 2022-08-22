@@ -63,4 +63,11 @@ public class OpportunityManagerImpl implements OpportunityManager {
         return opportunities;
     }
 
+    public List<Opportunity> getOpportunities() {
+        return opportunities;
+    }
+
+    public void setOpportunities(List<Opportunity> opportunities) {
+        this.opportunities = opportunities;
+    }
 }

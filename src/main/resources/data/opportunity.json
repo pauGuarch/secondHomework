@@ -49,5 +49,39 @@
       "productName": "Samsung Galaxy",
       "productType": "HYBRID"
     }
+  },
+  {
+    "id": "fae10886-ac14-495d-8c64-2ab5f17db0b3",
+    "decisionMaker": {
+      "id": "3e1c8e3d-0ac4-4653-bd28-b7df7c92c2a7",
+      "name": "Manolo",
+      "email": "manolo@gmail",
+      "phoneNumber": "212512525",
+      "companyName": "RamonerCompany"
+    },
+    "quantity": 40,
+    "status": "OPEN",
+    "product": {
+      "id": "8850cc4f-9abe-4189-be02-f0a53de2241f",
+      "productName": "Samsung Galaxy",
+      "productType": "HYBRID"
+    }
+  },
+  {
+    "id": "32a0c531-9511-424b-8e6c-b59c48a7d230",
+    "decisionMaker": {
+      "id": "5be83ebb-8d8e-4ddb-97fa-2b4fd3dac10c",
+      "name": "Manolo",
+      "email": "manolo@gmail",
+      "phoneNumber": "212512525",
+      "companyName": "RamonerCompany"
+    },
+    "quantity": 40,
+    "status": "OPEN",
+    "product": {
+      "id": "b1facaf3-331b-4111-ad04-9b752359b5fe",
+      "productName": "Samsung Galaxy",
+      "productType": "HYBRID"
+    }
   }
 ]
