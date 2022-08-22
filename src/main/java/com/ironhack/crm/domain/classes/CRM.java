@@ -5,7 +5,9 @@ import com.ironhack.crm.dao.manager.implementation.*;
 import com.ironhack.crm.domain.enums.OpportunityStatus;
 import com.ironhack.crm.domain.models.*;
 import com.ironhack.crm.controller.CRMController;
+import com.ironhack.crm.utils.Utils;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -62,7 +64,18 @@ public class CRM {
     }
 
     public void editOpportunityStatus(String opportunityId, OpportunityStatus status){
-        opportunityManager.lookUpOpportunity(UUID.fromString(opportunityId)).setStatus(status);
+        List<Opportunity> opportunities = opportunityManager.checkOpportunities();
+        for (Opportunity opportunity : opportunities) {
+            if (opportunity.getId().toString().equals(opportunityId)){
+                opportunity.setStatus(status);
+            }
+        }
+        opportunityManager.setOpportunities(opportunities);
+        try {
+            Utils.writeOpportunityJSON(opportunityManager.getOpportunities());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Opportunity> checkOpportunities(){
@@ -72,4 +85,6 @@ public class CRM {
     public Opportunity lookUpOpportunity(UUID opportunityId){
         return opportunityManager.lookUpOpportunity(opportunityId);
     }
+
+
 }
