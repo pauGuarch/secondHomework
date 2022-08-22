@@ -1,0 +1,10 @@
+A list of contacts is a way to win news leads and open new opportunities. For this, it is very important to maintain a list of up-to-date contacts.
+
+In Contacts you will find the id, name and email of the person who makes the decision, the phone number and the name of the company.
+
+Type:
+1 - To access a contact specific
+2 - To access all the contacts
+
+Type BACK to back the menu
+Type EXIT to exit the CRM

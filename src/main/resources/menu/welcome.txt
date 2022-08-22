@@ -1,0 +1,11 @@
+Welcome to the CRM of the Iguana-Coding Company!
+
+Here, you will be able to control all the business’s opportunities we have.
+
+All our contacts, leads, opportunities, accounts and products are up-to-date to make your work easy.
+
+Type the word CRM to manage
+Type the word EXIT to go out.
+
+Good luck!
+
