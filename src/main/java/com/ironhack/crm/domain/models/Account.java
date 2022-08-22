@@ -100,4 +100,8 @@ public class Account {
     public void setOpportunityList(List<Opportunity> opportunityList) {
         this.opportunityList = opportunityList;
     }
+
+    public void addOpportunity(Opportunity opporrtunity){
+        this.opportunityList.add(opporrtunity);
+    }
 }

@@ -41,7 +41,8 @@ public class LeadManagerImpl implements LeadManager {
 
     @Override
     public Lead lookUpLead(UUID leadId) {
-        return null;
+        leads.stream().filter(lead -> lead.getId().equals(leadId));
+        return leads.get(0);
     }
 
     @Override

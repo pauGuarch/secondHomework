@@ -5,7 +5,7 @@ import com.ironhack.crm.utils.Utils;
 import java.util.Scanner;
 
 public class CRMController {
-    private static String getLeadNameInput(){
+    public static String getLeadNameInput(){
         boolean isName = false;
         String name = "";
         Scanner input = new Scanner(System.in);
@@ -21,7 +21,7 @@ public class CRMController {
         return name;
     }
 
-    private static String getCompanyNameInput(){
+    public static String getCompanyNameInput(){
         String companyName = "";
         Scanner input = new Scanner(System.in);
         System.out.print("Please input the lead's company name: ");
@@ -29,7 +29,7 @@ public class CRMController {
         return companyName;
     }
 
-    private static String getLeadEmailInput(){
+    public static String getLeadEmailInput(){
         boolean isEmail = false;
         String email = "";
         Scanner input = new Scanner(System.in);
@@ -45,7 +45,7 @@ public class CRMController {
         return email;
     }
 
-    private static String getLeadPhoneNumberInput(){
+    public static String getLeadPhoneNumberInput(){
         boolean isPhoneNumber = false;
         String phoneNumber = "";
         Scanner input = new Scanner(System.in);
