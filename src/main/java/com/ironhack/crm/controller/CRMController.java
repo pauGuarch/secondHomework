@@ -7,6 +7,8 @@ import org.apache.tomcat.util.security.Escape;
 import java.io.IOException;
 import java.util.Scanner;
 
+import static com.ironhack.crm.utils.UtilsUserInputs.validateEmail;
+
 public class CRMController {
     private static CRMView crmView;
     private static CRM crm;
@@ -222,6 +224,7 @@ public class CRMController {
                 default: exitCRM();
             }
         } catch (IOException e) {
+            exitCRM();
             e.printStackTrace();
         }
         return option;
@@ -258,7 +261,7 @@ public class CRMController {
         while (!isEmail) {
             System.out.print("Please input lead's email: ");
             email = input.nextLine();
-            isEmail = Utils.validateEmail(email);
+            isEmail = validateEmail(email);
             if (!isEmail) {
                 System.out.print("\nPlease input lead's email: ");
             }
