@@ -8,6 +8,7 @@ import org.apache.tomcat.util.security.Escape;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.UUID;
 
 import static com.ironhack.crm.utils.UtilsUserInputs.validateEmail;
 
@@ -108,27 +109,25 @@ public class CRMController {
                 case "opportunity":
                     System.out.println("Please introduce a valid command:");
                     key = new Scanner(System.in).nextLine();
-                    while (!key.equals("1") && !key.equals("2") && !key.equals("3") && !key.equals("4") && !key.equals("EXIT") && !key.equals("BACK")) {
+                    while (!key.equals("1") && !key.equals("2")  && !key.equals("3") && !key.equals("EXIT") && !key.equals("BACK")) {
                         System.out.println("Please insert a valid command:");
                         key = new Scanner(System.in).nextLine();
                     }
                     switch (key){
                         case "1":
-                            //TODO To view a specific Opportunity
+                            crm.lookUpOpportunity(UUID.fromString(UtilsUserInputs.getOpportunityIdInput()));
                             option = "opportunity";
                             break;
                         case "2":
-                            //TODO To view all Opportunities
-                            crm.checkOpportunities();
+                            Utils.showOpportunities(crm.checkOpportunities());
                             option = "opportunity";
                             break;
-                        case "3":
-                            //TODO To search a specific decision maker
-                            option = "opportunity";
-                            break;
-                        case "4":
-                            //TODO To search all decision makers
-                            option = "opportunity";
+                            case "3": // Made by Pau
+                                String opportunityUUID = UtilsUserInputs.getOpportunityIdInput();
+                                int opportunityStatus = UtilsUserInputs.getOpportunityStatus();
+                                crm.editOpportunityStatus(opportunityUUID, opportunityStatus);
+
+                                option = "opportunity";
                             break;
                         case "BACK":
                             option = "welcome";
@@ -181,11 +180,7 @@ public class CRMController {
                     }
                     switch (key){
                         case "1":
-                            //TODO To access a contact specific
-                            option = "contacts";
-                            break;
-                        case "2":
-                            //TODO To access all the contacts
+                            Utils.showContacts(crm.checkContacts());
                             option = "contacts";
                             break;
                         case "BACK":

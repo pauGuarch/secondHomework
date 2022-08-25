@@ -1,11 +1,11 @@
-A lead is a person that is interested in the products of Iguana-Coging Company. This is a open door to make a deal.
+A lead is a person that is interested in the products of Iguana-Coding Company. This is an open door to make a deal.
 
-Choose a option and type:
+Choose an option and type:
 
-1 - Create lead
-2 - Show a specific lead
+1 - Create new lead
+2 - Show a specific lead by id
 3 - Show all leads
-4 - Convert lead to opportunity
+4 - Convert a lead to opportunity by id
 
 Type BACK to back the menu
 Type EXIT to exit the CRM

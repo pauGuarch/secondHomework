@@ -63,11 +63,11 @@ public class CRM {
         accountManager.createAccount(account);
     }
 
-    public void editOpportunityStatus(String opportunityId, OpportunityStatus status){
+    public void editOpportunityStatus(String opportunityId, int status){
         List<Opportunity> opportunities = opportunityManager.checkOpportunities();
         for (Opportunity opportunity : opportunities) {
             if (opportunity.getId().toString().equals(opportunityId)){
-                opportunity.setStatus(status);
+                opportunity.setStatus(OpportunityStatus.values()[status-1]);
             }
         }
         opportunityManager.setOpportunities(opportunities);
@@ -78,6 +78,7 @@ public class CRM {
         }
     }
 
+
     public List<Opportunity> checkOpportunities(){
         return opportunityManager.checkOpportunities();
     }
@@ -86,5 +87,8 @@ public class CRM {
         return opportunityManager.lookUpOpportunity(opportunityId);
     }
 
+    public List<Contact> checkContacts(){
+        return contactManager.checkContacts();
+    }
 
 }
