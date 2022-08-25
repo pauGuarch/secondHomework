@@ -9,6 +9,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
@@ -177,6 +178,53 @@ public class Utils {
             writer.close();
         } catch (Exception ex) {
             ex.printStackTrace();
+        }
+    }
+
+    public static void showContacts(ArrayList<Contact> contacts) {
+
+        StringBuilder contact = new StringBuilder();
+        String id = "ID";
+        String name = "NAME";
+        String email = "EMAIL";
+        String phoneNumber = "PHONE NUMBER";
+        String companyName = "COMPANY NAME";
+
+        System.out.format("%s%43s%31s%24s%32s \n"+"-".repeat(142)+"\n", id, name, email, phoneNumber, companyName);
+
+        for (int i = 0; i < contacts.size(); i++) {
+            System.out.format("%-42s %-28s %-30s %-25s %-12s \n", contacts.get(i).getId(), contacts.get(i).getName(), contacts.get(i).getEmail(), contacts.get(i).getPhoneNumber(), contacts.get(i).getCompanyName());
+        }
+
+    }
+
+    public static void showOpportunities(ArrayList<Opportunity> opportunities) {
+
+        StringBuilder opportunity = new StringBuilder();
+        String id = "ID";
+        String decisionMaker = "DECISION MAKER";
+        String quantity = "QUANTITY";
+        String status = "STATUS";
+        String product = "PRODUCT";
+        System.out.format("%s%55s%31s%24s%32s \n"+"-".repeat(142)+"\n", id, decisionMaker, quantity, status, product);
+
+        for (int i = 0; i < opportunities.size(); i++) {
+            System.out.format("%-42s %-28s %-30s %-25s %-12s \n", opportunities.get(i).getId(), opportunities.get(i).getDecisionMaker().getName(), opportunities.get(i).getQuantity(), opportunities.get(i).getStatus(), opportunities.get(i).getProduct());
+        }
+    }
+
+    public static void showProducts(ArrayList<Product> products) {
+        StringBuilder product = new StringBuilder();
+        String id = "ID";
+        String productName = "PRODUCT NAME";
+        String productType = "PRODUCT TYPE";
+
+        System.out.format("%-43s %-31s %-24s \n"+"-".repeat(142)+"\n", id, productName, productType);
+
+        for (int i = 0; i < products.size(); i++) {
+
+            System.out.format("%-42s %-28s %-30s \n", products.get(i).getId(), products.get(i).getProductName(), products.get(i).getProductType());
+
         }
     }
 }

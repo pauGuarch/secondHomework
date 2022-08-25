@@ -1,6 +1,8 @@
 package com.ironhack.crm.controller;
+
 import com.ironhack.crm.domain.classes.CRM;
 import com.ironhack.crm.utils.Utils;
+import com.ironhack.crm.utils.UtilsUserInputs;
 import com.ironhack.crm.view.CRMView;
 import org.apache.tomcat.util.security.Escape;
 
@@ -80,6 +82,7 @@ public class CRMController {
                     switch (key){
                         case "1":
                             //TODO Create lead
+                            crm.createNewLead(UtilsUserInputs.getUserLeadInput());
                             option = "lead";
                             break;
                         case "2":
@@ -88,6 +91,7 @@ public class CRMController {
                             break;
                         case "3":
                             //TODO Show all leads
+                            crm.checkLeads();
                             option = "lead";
                             break;
                         case "4":
@@ -116,6 +120,7 @@ public class CRMController {
                             break;
                         case "2":
                             //TODO To view all Opportunities
+                            crm.checkOpportunities();
                             option = "opportunity";
                             break;
                         case "3":
