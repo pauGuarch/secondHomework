@@ -104,6 +104,7 @@ public class Utils {
     public static List<Account> readAccounts() {
         List<Account> accounts = null;
         try {
+            //Reader reader = new FileReader(new ClassPathResource("data/account.json").getFile());
             Reader reader = Files.newBufferedReader(Paths.get("./src/main/resources/data/account.json"));
             accounts = new Gson().fromJson(reader, new TypeToken<List<Account>>() {}.getType());
             reader.close();

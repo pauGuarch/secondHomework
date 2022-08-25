@@ -1,1 +1,51 @@
-[]
+[
+  {
+    "id": "e5941963-d554-45c6-8190-2d112ddae5e7",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  },
+  {
+    "id": "e26ac3d2-9783-4c3a-aa63-89f9b11d73d8",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  },
+  {
+    "id": "c602a2a9-a3fb-4dec-9ecf-dcf4a214dbf7",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  },
+  {
+    "id": "d0725614-a4a6-4c5d-be8b-d6416c0c2a1b",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  },
+  {
+    "id": "4a257c23-684f-49ed-a407-cf7cb139ad2e",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  },
+  {
+    "id": "4a2f7738-1995-4bd5-a5a4-4cdedd97ba4c",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  },
+  {
+    "id": "3dfb1ccf-3c44-4d15-99b7-9330ae07c87f",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
+  }
+]
