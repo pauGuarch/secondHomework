@@ -6,6 +6,7 @@ import com.ironhack.crm.domain.enums.OpportunityStatus;
 import com.ironhack.crm.domain.models.*;
 import com.ironhack.crm.controller.CRMController;
 import com.ironhack.crm.utils.Utils;
+import com.ironhack.crm.utils.UtilsUserInputs;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ public class CRM {
     private OpportunityManagerImpl opportunityManager;
 
     private ProductManagerImpl productManager;
+
+    private OpportunityStatus opportunityStatus;
 
     public CRM() {
         accountManager = AccountManagerImpl.getInstance();
@@ -47,7 +50,6 @@ public class CRM {
         return accountManager.checkAccounts();
     }
 
-
     public void convertLeadToOpportunity(String leadId, Product product, Integer productQuantity,  String accountIndustry,
                                          Integer accountEmployees, String accountCity, String accountCountry){
         Lead lead = leadManager.lookUpLead(UUID.fromString(leadId));
@@ -63,11 +65,11 @@ public class CRM {
         accountManager.createAccount(account);
     }
 
-    public void editOpportunityStatus(String opportunityId, OpportunityStatus status){
+    public void editOpportunityStatus(String opportunityId, int status){
         List<Opportunity> opportunities = opportunityManager.checkOpportunities();
         for (Opportunity opportunity : opportunities) {
             if (opportunity.getId().toString().equals(opportunityId)){
-                opportunity.setStatus(status);
+                opportunity.setStatus(OpportunityStatus.values()[status-1]);
             }
         }
         opportunityManager.setOpportunities(opportunities);

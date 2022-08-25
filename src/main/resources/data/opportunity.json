@@ -1,1 +1,19 @@
-[]
+[
+  {
+    "id": "a1e3a8a6-5369-4d19-a221-bb392e2c643f",
+    "decisionMaker": {
+      "id": "392cbfde-999e-4327-ad2a-da80f10448ee",
+      "name": "Pau Caleb Carlos",
+      "email": "aedaew@aewdawed.com",
+      "phoneNumber": "234234234",
+      "companyName": "Ironhack"
+    },
+    "quantity": 23,
+    "status": "OPEN",
+    "product": {
+      "id": "19cf2802-4129-4d36-8c9b-dbf969978e27",
+      "productName": "Berenjenas",
+      "productType": "BOX"
+    }
+  }
+]

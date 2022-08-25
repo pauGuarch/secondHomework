@@ -17,7 +17,7 @@ public class UtilsUserInputs {
         String accountCountry = "";
         boolean isValidCountry = false;
         while (!isValidCountry) {
-            System.out.print("Please input the city for the account that you want to create: ");
+            System.out.print("Please input the country for the account that you want to create: ");
             try {
                 accountCountry = input.nextLine();
                 isValidCountry = true;
@@ -145,7 +145,6 @@ public class UtilsUserInputs {
         return new Lead(getLeadNameInput(), getCompanyNameInput(), getLeadEmailInput(), getLeadPhoneNumberInput());
     }
 
-
     public static boolean validateEmail(String email){
         String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
         boolean validate = false;
@@ -217,4 +216,34 @@ public class UtilsUserInputs {
         }
         return phoneNumber;
     }
+
+    public static int getOpportunityStatus(){
+        Scanner input = new Scanner(System.in);
+        boolean isValidEnum = false;
+        int opportunityStatusIndex = 0;
+        while(!isValidEnum) {
+            System.out.print("Please input the opportunity type number : OPEN(1), CLOSED_WON(2), CLOSED_LOST(3)  ");
+            try {
+                opportunityStatusIndex = Integer.parseInt(input.nextLine());
+                if (opportunityStatusIndex >= 1 && opportunityStatusIndex <= 3) {
+                    isValidEnum = true;
+                }
+            } catch (NumberFormatException num) {
+
+            }
+        }
+        return opportunityStatusIndex;
+    }
+
+    public static String getOpportunityIdInput() {
+        System.out.print("Please input the Opportunity UUID that you want to search: ");
+        Scanner input = new Scanner(System.in);
+        String someUUID = input.nextLine();
+        while (!isUUID(someUUID)) {
+            System.out.print("Please input the Opportunity UUID that you want to search: ");
+            someUUID = input.nextLine();
+        }
+        return someUUID;
+    }
+
 }

@@ -94,7 +94,10 @@ public class CRMController {
                             break;
                         case "4":
                             //TODO Convert lead to opportunity
-                            //crm.convertLeadToOpportunity(UtilsUserInputs.getLeadIdInput(), );
+                            crm.convertLeadToOpportunity(UtilsUserInputs.getLeadIdInput(),
+                                    UtilsUserInputs.createProduct(), UtilsUserInputs.getProductQuantityInput(),
+                                    UtilsUserInputs.getAccountIndustryInput(), UtilsUserInputs.getEmployeesNumberInput(),
+                                    UtilsUserInputs.getAccountCityInput(), UtilsUserInputs.getAccountCountryInput());
                             option = "lead";
                             break;
                         case "BACK":
@@ -119,7 +122,7 @@ public class CRMController {
                             break;
                         case "2":
                             //TODO To view all Opportunities
-                            crm.checkOpportunities();
+                            //crm.checkOpportunities();
                             option = "opportunity";
                             break;
                         case "3":
@@ -128,6 +131,9 @@ public class CRMController {
                             break;
                         case "4":
                             //TODO To search all decision makers
+                            int opportunityStatus = UtilsUserInputs.getOpportunityStatus();
+                            String opportunityUUID = UtilsUserInputs.getOpportunityIdInput();
+                            crm.editOpportunityStatus(opportunityUUID, opportunityStatus);
                             option = "opportunity";
                             break;
                         case "BACK":
