@@ -66,17 +66,6 @@ public class Utils {
         }
     }
 
-    public static boolean validateEmail(String email){
-        String regex = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        boolean validate = false;
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(email);
-        if(m.matches()){
-            validate=true;
-        }
-        return validate;
-    }
-
 
     public static List<Opportunity> readOpportunities() {
         List<Opportunity> opportunities = null;
