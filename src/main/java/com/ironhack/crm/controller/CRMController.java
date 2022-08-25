@@ -245,44 +245,6 @@ public class CRMController {
         return name;
     }
 
-    private static String getCompanyNameInput(){
-        String companyName = "";
-        Scanner input = new Scanner(System.in);
-        System.out.print("Please input the lead's company name: ");
-        companyName = input.nextLine();
-        return companyName;
-    }
-
-    private static String getLeadEmailInput(){
-        boolean isEmail = false;
-        String email = "";
-        Scanner input = new Scanner(System.in);
-
-        while (!isEmail) {
-            System.out.print("Please input lead's email: ");
-            email = input.nextLine();
-            isEmail = validateEmail(email);
-            if (!isEmail) {
-                System.out.print("\nPlease input lead's email: ");
-            }
-        }
-        return email;
-    }
-
-    private static String getLeadPhoneNumberInput(){
-        boolean isPhoneNumber = false;
-        String phoneNumber = "";
-        Scanner input = new Scanner(System.in);
-        while (!isPhoneNumber) {
-            System.out.print("Please input lead's phone number: ");
-            phoneNumber = input.nextLine();
-            if (phoneNumber.isEmpty()==false) isPhoneNumber = true;
-            if (!isPhoneNumber) {
-                System.out.print("\nPlease input phone number: ");
-            }
-        }
-        return phoneNumber;
-    }
     private static void clearConsole() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
