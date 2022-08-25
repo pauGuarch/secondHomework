@@ -227,4 +227,19 @@ public class Utils {
 
         }
     }
+
+    public static void showLeads(List<Lead> leads){
+        StringBuilder lead = new StringBuilder();
+        String id = "ID";
+        String name = "NAME";
+        String company = "COMPANY";
+        String email = "EMAIL";
+        String phoneNumber = "PHONENUMBER";
+        System.out.format("%s%43s%31s%24s%32s \n"+"-".repeat(142)+"\n", id,
+                name, company, email, phoneNumber);
+        for (int i = 0; i < leads.size(); i++) {
+            System.out.format("%-40s %-27s %-25s %-25s %-12s \n", leads.get(i).getId().toString(), leads.get(i).getName(),
+                    leads.get(i).getCompanyName(), leads.get(i).getEmail(), leads.get(i).getPhoneNumber());
+        }
+    }
 }

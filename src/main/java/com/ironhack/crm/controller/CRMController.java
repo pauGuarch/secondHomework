@@ -81,7 +81,6 @@ public class CRMController {
                     }
                     switch (key){
                         case "1":
-                            //TODO Create lead
                             crm.createNewLead(UtilsUserInputs.getUserLeadInput());
                             option = "lead";
                             break;
@@ -90,12 +89,12 @@ public class CRMController {
                             option = "lead";
                             break;
                         case "3":
-                            //TODO Show all leads
-                            crm.checkLeads();
+                            Utils.showLeads(crm.checkLeads());
                             option = "lead";
                             break;
                         case "4":
                             //TODO Convert lead to opportunity
+                            //crm.convertLeadToOpportunity(UtilsUserInputs.getLeadIdInput(), );
                             option = "lead";
                             break;
                         case "BACK":
