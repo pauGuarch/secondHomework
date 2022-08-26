@@ -17,7 +17,7 @@ public class UtilsUserInputs {
         String accountCountry = "";
         boolean isValidCountry = false;
         while (!isValidCountry) {
-            System.out.print("Please input the city for the account that you want to create: ");
+            System.out.print("Please input the Country for the account that you want to create: ");
             try {
                 accountCountry = input.nextLine();
                 isValidCountry = true;
@@ -25,6 +25,7 @@ public class UtilsUserInputs {
 
             }
         }
+        System.out.println("\nOpportunity created successfully\n");
         return accountCountry;
     }
 
@@ -101,19 +102,10 @@ public class UtilsUserInputs {
         String productName = null;
         int productTypeIndex = 0;
         boolean isValidEnum = false;
-        boolean isValidName = false;
-        while(!isValidName || !isValidEnum) {
-            if(!isValidName) {
-                System.out.print("Please input the product name that you want to create: ");
-                try {
-                    productName = input.nextLine();
-                    isValidName = true;
-                } catch (InputMismatchException a) {
-
-                }
-            }
+        while(!isValidEnum) {
             if(!isValidEnum) {
-                System.out.print("Please input the product type number : BOX(1), FLATBED(2), HYBRID(3)  ");
+                System.out.println("\nYou are about to create a new Opportunity please read carefully all the steps\n");
+                System.out.print("Please input the number of product type you want to choose : 1-BOX, 2-FLATBED, 3-HYBRID : ");
                 try {
                     productTypeIndex = Integer.parseInt(input.nextLine());
                     if (productTypeIndex >= 1 && productTypeIndex <= 3) {
@@ -124,8 +116,6 @@ public class UtilsUserInputs {
                 }
             }
         }
-
-
         ProductType productType = ProductType.values()[productTypeIndex-1];
         return new Product(productType);
     }
@@ -219,11 +209,11 @@ public class UtilsUserInputs {
     }
 
     public static String getOpportunityIdInput() {
-        System.out.print("Please type the Opportunity UUID that you want to search: ");
+        System.out.print("Please type the Opportunity UUID that you want to change the status: ");
         Scanner input = new Scanner(System.in);
         String someUUID = input.nextLine();
         while (!isUUID(someUUID)) {
-            System.out.print("Please type the Opportunity UUID that you want to search: ");
+            System.out.print("Please type the Opportunity UUID that you want to change the status: ");
                 someUUID = input.nextLine();
         }
         return someUUID;

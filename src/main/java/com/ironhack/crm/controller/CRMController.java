@@ -47,11 +47,12 @@
                         case "menu-options":
                             System.out.println("Please introduce a valid command:");
                             String key = new Scanner(System.in).nextLine();
-                            while (!key.equals("new lead") && !key.equals("lookup lead") && !key.equals("show leads") && !key.equals("4") && !key.equals("5") && !key.equals("EXIT") && !key.equals("BACK")) {
+                            while (!key.equals("new lead") && !key.equals("lookup lead") && !key.equals("show leads") && !key.equals("convert")
+                                    && !key.equals("show opportunities") && !key.equals("close-won") && !key.equals("close-lost") && !key.equals("EXIT") && !key.equals("BACK")) {
                                 System.out.println("Please insert a valid command:");
                                 key = new Scanner(System.in).nextLine();
                             }
-                            switch (key){
+                            switch (key.toLowerCase()){
                                 case "new lead":
                                     System.out.println("\nYou are about to create a new Lead, read carefully the instructions.\n");
                                     crm.createNewLead(UtilsUserInputs.getUserLeadInput());
@@ -67,165 +68,39 @@
                                     option = "menu-options";
                                     break;
                                 case "convert":
-                                    //TODO
+                                    crm.convertLeadToOpportunity(UtilsUserInputs.getLeadIdInput(),
+                                            UtilsUserInputs.createProduct(), UtilsUserInputs.getProductQuantityInput(),
+                                            UtilsUserInputs.getAccountIndustryInput(), UtilsUserInputs.getEmployeesNumberInput(),
+                                            UtilsUserInputs.getAccountCityInput(), UtilsUserInputs.getAccountCountryInput());
+
                                     option = "menu-options";
                                 break;
-                            case "5":
-                                option = "products";
-                                break;
-                            default:
-                                option = key;
-                            }
-                            clearConsole();
-                            break;
-
-                    /*case "new lead":
-                        crm.createNewLead(UtilsUserInputs.getUserLeadInput());
-                        option = "menu-options";
-                        clearConsole();
-                        break;
-
-                        case "lookup lead":
-                            crm.lookUpLead(UUID.fromString(UtilsUserInputs.getLeadIdInput()));
-                            option = "menu-options";
-                            clearConsole();
-                            break;
-                            case "opportunity":
-                            System.out.println("Please introduce a valid command:");
-                            key = new Scanner(System.in).nextLine();
-                            while (!key.equals("1") && !key.equals("2")  && !key.equals("3") && !key.equals("EXIT") && !key.equals("BACK")) {
-                                System.out.println("Please insert a valid command:");
-                                key = new Scanner(System.in).nextLine();
-                            }
-                            switch (key){
-                                case "1":
-                                    crm.lookUpOpportunity(UUID.fromString(UtilsUserInputs.getOpportunityIdInput()));
-                                    option = "opportunity";
-                                    break;
-                                case "2":
+                                case "show opportunities":
                                     Utils.showOpportunities(crm.checkOpportunities());
-                                    option = "opportunity";
-                                    break;
-                                    case "3": // Made by Pau
-                                        String opportunityUUID = UtilsUserInputs.getOpportunityIdInput();
-                                        int opportunityStatus = UtilsUserInputs.getOpportunityStatus();
-                                        crm.editOpportunityStatus(opportunityUUID, opportunityStatus);
-
-                                        option = "opportunity";
-                                    break;
-                                case "BACK":
                                     option = "menu-options";
-                                    break;
-                                default:
-                                    option = key;
-                        }
-                        clearConsole();
-                        break;
-
-                    case "account":
-                        System.out.println("Please introduce a valid command:");
-                        key = new Scanner(System.in).nextLine();
-                        while (!key.equals("1") && !key.equals("2") && !key.equals("3") && !key.equals("4") && !key.equals("EXIT") && !key.equals("BACK")) {
-                            System.out.println("Please insert a valid command:");
-                            key = new Scanner(System.in).nextLine();
-                        }
-                        switch (key){
-                            case "1":
-                                //TODO To manage a specific account
-                                option = "account";
                                 break;
-                            case "2":
-                                //TODO To access all accounts
-                                option = "account";
-                                break;
-                            case "3":
-                                //TODO To access a list of contacts
-                                option = "account";
-                                break;
-                            case "4":
-                                //TODO To access a list of opportunities
-                                option = "account";
-                                break;
-                            case "BACK":
-                                option = "menu-options";
+                                case "close-lost":
+                                    // Made by Pau
+                                    crm.editOpportunityStatus(UtilsUserInputs.getOpportunityIdInput(), 3);
+                                    option = "menu-options";
+                                break;case "close-won":
+                                    // Made by Pau
+                                    crm.editOpportunityStatus(UtilsUserInputs.getOpportunityIdInput(), 2);
+                                    option = "menu-options";
                                 break;
                             default:
                                 option = key;
-                        }
-                        clearConsole();
-                        break;
+                            }
+                            clearConsole();
+                            break;
 
-                    case "contacts":
-                        System.out.println("Please introduce a valid command:");
-                        key = new Scanner(System.in).nextLine();
-                        while (!key.equals("1") && !key.equals("2")  && !key.equals("EXIT") && !key.equals("BACK")) {
-                            System.out.println("Please insert a valid command:");
-                            key = new Scanner(System.in).nextLine();
-                        }
-                        switch (key){
-                            case "1":
-                                Utils.showContacts(crm.checkContacts());
-                                option = "contacts";
-                                break;
-                            case "BACK":
-                                option = "menu-options";
-                                break;
-                            default:
-                                option = key;
-                        }
-                        clearConsole();
-                        break;
 
-                    case "products":
-                        System.out.println("Please introduce a valid command:");
-                        key = new Scanner(System.in).nextLine();
-                        while (!key.equals("1") && !key.equals("2")  && !key.equals("3") && !key.equals("EXIT") && !key.equals("BACK")) {
-                            System.out.println("Please insert a valid command:");
-                            key = new Scanner(System.in).nextLine();
-                        }
-                        switch (key){
-                            case "1":
-                                //TODO Search a product by an id
-                                option = "products";
-                                break;
-                            case "2":
-                                //TODO Search a product by name
-                                option = "products";
-                                break;
-                            case "3":
-                                //TODO Search a product by type
-                                option = "products";
-                                break;
-                            case "BACK":
-                                option = "menu-options";
-                                break;
-                            default:
-                                option = key;
-                        }
-                        clearConsole();
-                        break;
-                    default: exitCRM();*/
                 }
             } catch (IOException e) {
                 exitCRM();
                 e.printStackTrace();
             }
             return option;
-        }
-        private static String getLeadNameInput(){
-            boolean isName = false;
-            String name = "";
-            Scanner input = new Scanner(System.in);
-
-            while (!isName) {
-                System.out.print("Please input lead's 'First Middle and Last' name: ");
-                name = input.nextLine();
-                isName = (name.trim().split("\\s+").length == 3);
-                if (!isName) {
-                    System.out.print("\nEnter your name as 'First Middle Last': ");
-                }
-            }
-            return name;
         }
 
         private static void clearConsole() {
