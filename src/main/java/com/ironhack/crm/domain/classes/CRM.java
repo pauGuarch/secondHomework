@@ -63,6 +63,20 @@ public class CRM {
         accountManager.createAccount(account);
     }
 
+    /*public void convertLeadToOpportunity(String leadId){
+        Lead lead = leadManager.lookUpLead(UUID.fromString(leadId));
+        Contact contact = new Contact(lead.getName(), lead.getEmail(), lead.getPhoneNumber(), lead.getCompanyName());
+        Opportunity opportunity = new Opportunity(contact, productQuantity, OpportunityStatus.OPEN, product);
+        List <Contact> contacts = new ArrayList<Contact>();
+        contacts.add(contact);
+        List <Opportunity> opportunities = new ArrayList<Opportunity>();
+        opportunities.add(opportunity);
+        Account account = new Account(accountIndustry, accountEmployees, accountCity, accountCountry, contacts, opportunities);
+        opportunityManager.createNewOpportunity(opportunity);
+        contactManager.createNewContact(contact);
+        accountManager.createAccount(account);
+    }*/
+
     public void editOpportunityStatus(String opportunityId, int status){
         List<Opportunity> opportunities = opportunityManager.checkOpportunities();
         for (Opportunity opportunity : opportunities) {

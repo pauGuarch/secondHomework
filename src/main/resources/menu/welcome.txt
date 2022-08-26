@@ -1,16 +1,6 @@
 Welcome to the CRM of the Iguana-Coding Company!
 
-Here, you will be able to control all the business’s opportunities we have.
+Here, you will be able to have full control over a brand new CRM system.
 
-All our contacts, leads, opportunities, accounts and products are up-to-date to make your work easy.
 
-Type the number of the function you want to access:
-
-1 - Leads
-2 - Opportunities
-3 - Accounts
-4 - Contacts
-5 - Products
-
-Type EXIT to go out
 

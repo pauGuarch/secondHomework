@@ -127,15 +127,15 @@ public class UtilsUserInputs {
 
 
         ProductType productType = ProductType.values()[productTypeIndex-1];
-        return new Product(productName, productType);
+        return new Product(productType);
     }
 
     public static String getLeadIdInput(){
-        System.out.print("Please input the lead's UUID that you want to convert: ");
+        System.out.print("\nPlease input the lead's UUID that you want to search: ");
         Scanner input = new Scanner(System.in);
         String someUUID = input.nextLine();
         while(!isUUID(someUUID)){
-            System.out.print("Please input the lead's UUID that you want to convert: ");
+            System.out.print("Please input the lead's UUID that you want to search: ");
             someUUID = input.nextLine();
         }
         return someUUID;
