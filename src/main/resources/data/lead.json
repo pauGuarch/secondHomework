@@ -1,16 +1,9 @@
 [
   {
-    "id": "d41b111a-644a-408d-b6a7-cd431345e749",
-    "name": "Jane Doe",
-    "companyName": "Jane\u0027s Company",
-    "email": "aedaew@aewdawed.com",
-    "phoneNumber": "234234234"
-  },
-  {
-    "id": "2346e6c2-6bc3-4187-86d0-4226858bc9ff",
-    "name": "Jon Doe",
-    "companyName": "Jane\u0027s Company",
-    "email": "apsfjo@jfasof.com",
-    "phoneNumber": "21512525"
+    "id": "05b6a5d8-c8de-45f7-aa77-17b17e373d7c",
+    "name": "María",
+    "companyName": "Ikea",
+    "email": "mariavikea@gmail.com",
+    "phoneNumber": "625888444"
   }
 ]
