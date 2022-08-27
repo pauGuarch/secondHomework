@@ -8,12 +8,10 @@ import java.util.UUID;
 public class Product {
 
     UUID id;
-    private String productName;
     private ProductType productType;
 
-    public Product(String productName, ProductType productType) {
+    public Product(ProductType productType) {
         setId();
-        this.productName = productName;
         this.productType = productType;
     }
 
@@ -25,17 +23,6 @@ public class Product {
         this.id = UUID.randomUUID();
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) throws EmptyStringException {
-        if(!productName.isEmpty()){
-            this.productName = productName;
-        }else {
-            throw new EmptyStringException();
-        }
-    }
 
     public ProductType getProductType() {
         return productType;

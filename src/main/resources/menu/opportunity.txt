@@ -9,8 +9,6 @@ Here, you will find information like:
 Type:
 1 - To view a specific Opportunity
 2 - To view all Opportunities
-3 - To search a specific decision maker
-4 - To search all decision makers
-
+3 - To set opportunity status
 Type BACK to back the menu
 Type EXIT to exit the CRM

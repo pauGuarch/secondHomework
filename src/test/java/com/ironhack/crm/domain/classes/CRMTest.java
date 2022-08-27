@@ -78,13 +78,13 @@ class CRMTest {
 
     @Test
     void editOpportunityStatusToClosedWonTest() {
-        crm.editOpportunityStatus(opportunity1.getId().toString(), OpportunityStatus.CLOSED_WON);
+        crm.editOpportunityStatus(opportunity1.getId().toString(), 2);
         assertEquals(OpportunityStatus.CLOSED_WON, opportunityManager.lookUpOpportunity(opportunity1.getId()).getStatus());
     }
 
     @Test
     void editOpportunityStatusToClosedLostTest() {
-        crm.editOpportunityStatus(opportunity1.getId().toString(), OpportunityStatus.CLOSED_LOST);
+        crm.editOpportunityStatus(opportunity1.getId().toString(), 3);
         assertEquals(OpportunityStatus.CLOSED_LOST, opportunityManager.lookUpOpportunity(opportunity1.getId()).getStatus());
     }
 

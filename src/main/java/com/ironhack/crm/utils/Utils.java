@@ -181,7 +181,7 @@ public class Utils {
         }
     }
 
-    public static void showContacts(ArrayList<Contact> contacts) {
+    public static void showContacts(List<Contact> contacts) {
 
         StringBuilder contact = new StringBuilder();
         String id = "ID";
@@ -198,7 +198,7 @@ public class Utils {
 
     }
 
-    public static void showOpportunities(ArrayList<Opportunity> opportunities) {
+    public static void showOpportunities(List<Opportunity> opportunities) {
 
         StringBuilder opportunity = new StringBuilder();
         String id = "ID";
@@ -213,7 +213,7 @@ public class Utils {
         }
     }
 
-    public static void showProducts(ArrayList<Product> products) {
+    public static void showProducts(List<Product> products) {
         StringBuilder product = new StringBuilder();
         String id = "ID";
         String productName = "PRODUCT NAME";

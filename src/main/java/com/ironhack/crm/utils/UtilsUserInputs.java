@@ -169,12 +169,12 @@ public class UtilsUserInputs {
         boolean isName = false;
         String name = "";
         Scanner input = new Scanner(System.in);
-        System.out.print("Please input lead's 'FirstName MiddleName  LastName' format: ");
+        System.out.print("Please type the lead's full name in this format 'First name, Middle name and Last name': ");
         while (!isName) {
             name = input.nextLine();
             isName = (name.trim().split("\\s+").length == 3);
             if (!isName) {
-                System.out.print("\nEnter your name as 'FirstName MiddleName  LastName' format: ");
+                System.out.print("\nMake sure to follow the format 'FirstName MiddleName  LastName' : ");
             }
         }
         return name;
@@ -183,7 +183,7 @@ public class UtilsUserInputs {
     private static String getCompanyNameInput(){
         String companyName = "";
         Scanner input = new Scanner(System.in);
-        System.out.print("Please input the lead's company name: ");
+        System.out.print("Please type the lead's company name: ");
         companyName = input.nextLine();
         return companyName;
     }
@@ -192,12 +192,12 @@ public class UtilsUserInputs {
         boolean isEmail = false;
         String email = "";
         Scanner input = new Scanner(System.in);
-        System.out.print("Please input lead's email: ");
+        System.out.print("Please type lead's email: ");
         while (!isEmail) {
             email = input.nextLine();
             isEmail = validateEmail(email);
             if (!isEmail) {
-                System.out.print("\nPlease input lead's email with correct format (name@domain.example): ");
+                System.out.print("\nPlease make sure to follow the correct format (name@domain.example): ");
             }
         }
         return email;
@@ -208,13 +208,47 @@ public class UtilsUserInputs {
         String phoneNumber = "";
         Scanner input = new Scanner(System.in);
         while (!isPhoneNumber) {
-            System.out.print("Please input lead's phone number: ");
+            System.out.print("Please type lead's phone number: ");
             phoneNumber = input.nextLine();
             if (phoneNumber.isEmpty()==false) isPhoneNumber = true;
             if (!isPhoneNumber) {
-                System.out.print("\nPlease input phone number: ");
+                System.out.print("\nPlease make sure to only type numbers: ");
             }
         }
         return phoneNumber;
     }
+
+    public static String getOpportunityIdInput() {
+        System.out.print("Please type the Opportunity UUID that you want to search: ");
+        Scanner input = new Scanner(System.in);
+        String someUUID = input.nextLine();
+        while (!isUUID(someUUID)) {
+            System.out.print("Please type the Opportunity UUID that you want to search: ");
+                someUUID = input.nextLine();
+        }
+        return someUUID;
+    }
+
+    // Made by Pau
+
+    public static int getOpportunityStatus(){
+        Scanner input = new Scanner(System.in);
+        boolean isValidEnum = false;
+        int opportunityStatusIndex = 0;
+        while(!isValidEnum) {
+            System.out.print("Please input the number for the status type : \n 1-OPEN, 2-CLOSED_WON, 3-CLOSED_LOST :\n");
+            try {
+                opportunityStatusIndex = Integer.parseInt(input.nextLine());
+                if (opportunityStatusIndex >= 1 && opportunityStatusIndex <= 3) {
+                    isValidEnum = true;
+                }
+            } catch (NumberFormatException num) {
+
+            }
+        }
+        return opportunityStatusIndex;
+    }
+
+
+
 }
