@@ -23,7 +23,7 @@ class OpportunityManagerImplTest {
         opportunityManager = OpportunityManagerImpl.getInstance();
         contact1 = new Contact("Manolo", "manolo@gmail", "212512525", "RamonerCompany");
         contact2 = new Contact("Rubi", "rubi@gmail", "212512525", "RamonerCompany");
-        product = new Product("Samsung Galaxy", ProductType.HYBRID);
+        product = new Product(ProductType.HYBRID);
         opportunity1 = new Opportunity(contact1, 40, OpportunityStatus.OPEN, product);
         opportunity2 = new Opportunity(contact2, 10, OpportunityStatus.CLOSED_LOST, product);
     }
@@ -41,6 +41,6 @@ class OpportunityManagerImplTest {
         opportunityManager.createNewOpportunity(opportunity1);
         Opportunity lookedOpportunity = opportunityManager.lookUpOpportunity(opportunity1.getId());
         assertEquals(40, lookedOpportunity.getQuantity());
-        assertTrue(lookedOpportunity.getProduct().getProductName().equals("Samsung Galaxy"));
+        assertTrue(lookedOpportunity.getId().equals(opportunity1.getId()));
     }
 }

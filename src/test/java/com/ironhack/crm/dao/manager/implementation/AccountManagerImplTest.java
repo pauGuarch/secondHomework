@@ -29,7 +29,7 @@ class AccountManagerImplTest {
         contact = new Contact("Manolo", "manolo@gmail", "212512525", "RamonerCompany");
 
         contacts = new ArrayList<>();
-        product = new Product("Samsung Galaxy", ProductType.HYBRID);
+        product = new Product(ProductType.HYBRID);
         opportunity = new Opportunity(contact,1, OpportunityStatus.OPEN,product);
         opportunities = new ArrayList<>();
         opportunities.add(opportunity);

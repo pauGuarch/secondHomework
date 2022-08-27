@@ -43,6 +43,7 @@ public class CRM {
         return leadManager.lookUpLead(leadId);
     }
 
+
     public List<Account> checkAccounts(){
         return accountManager.checkAccounts();
     }
@@ -58,19 +59,22 @@ public class CRM {
         List <Opportunity> opportunities = new ArrayList<Opportunity>();
         opportunities.add(opportunity);
         Account account = new Account(accountIndustry, accountEmployees, accountCity, accountCountry, contacts, opportunities);
+        productManager.createProduct(product);
+        leadManager.removeLead(UUID.fromString(leadId));
         opportunityManager.createNewOpportunity(opportunity);
         contactManager.createNewContact(contact);
         accountManager.createAccount(account);
     }
 
     public void editOpportunityStatus(String opportunityId, int status){
-        List<Opportunity> opportunities = opportunityManager.checkOpportunities();
+        /*List<Opportunity> opportunities = opportunityManager.checkOpportunities();
         for (Opportunity opportunity : opportunities) {
             if (opportunity.getId().toString().equals(opportunityId)){
                 opportunity.setStatus(OpportunityStatus.values()[status-1]);
             }
-        }
-        opportunityManager.setOpportunities(opportunities);
+        }*/
+        opportunityManager.lookUpOpportunity(UUID.fromString(opportunityId)).setStatus(OpportunityStatus.values()[status - 1]);
+
         try {
             Utils.writeOpportunityJSON(opportunityManager.getOpportunities());
         } catch (IOException e) {
@@ -91,4 +95,7 @@ public class CRM {
         return contactManager.checkContacts();
     }
 
+    public void crateNewContact(Contact contact) {
+        contactManager.createNewContact(contact);
+    }
 }
