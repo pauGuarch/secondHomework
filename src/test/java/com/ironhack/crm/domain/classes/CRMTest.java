@@ -5,6 +5,7 @@ import com.ironhack.crm.dao.manager.implementation.ContactManagerImpl;
 import com.ironhack.crm.dao.manager.implementation.LeadManagerImpl;
 import com.ironhack.crm.dao.manager.implementation.OpportunityManagerImpl;
 import com.ironhack.crm.domain.enums.OpportunityStatus;
+import com.ironhack.crm.domain.enums.ProductType;
 import com.ironhack.crm.domain.models.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,7 @@ class CRMTest {
         contact2 = new Contact(lead2.getName(), lead2.getCompanyName(), lead2.getEmail(), lead2.getPhoneNumber());
         contactManager.createNewContact(contact1);
         contactManager.createNewContact(contact2);
+        product = new Product(ProductType.HYBRID);
         opportunity1 = new Opportunity(contact1, 40, OpportunityStatus.OPEN, product);
         opportunity2 = new Opportunity(contact2, 10, OpportunityStatus.CLOSED_LOST, product);
         crm.createNewLead(lead1);
@@ -102,4 +104,3 @@ class CRMTest {
         contactManager.deleteContact(contact.getId());
     }
 }
-

@@ -20,8 +20,8 @@ class ProductManagerImplTest {
     @BeforeEach
     void setUp() {
         productManager = ProductManagerImpl.getInstance();
-        product1 = new Product("Samsung Galaxy S22", ProductType.HYBRID);
-        product2 = new Product("Samsung Galaxy S22 Ultra", ProductType.BOX);
+        product1 = new Product(ProductType.HYBRID);
+        product2 = new Product(ProductType.BOX);
     }
 
     @Test
