@@ -117,7 +117,7 @@ public class UtilsUserInputs {
             }
         }
         ProductType productType = ProductType.values()[productTypeIndex-1];
-        return new Product(productType);
+        return new Product("Samsung Galaxy S22 Ultra", productType);
     }
 
     public static String getLeadIdInput(){
